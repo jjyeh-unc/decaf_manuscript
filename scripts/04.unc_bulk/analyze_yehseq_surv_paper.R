@@ -1,9 +1,4 @@
----
-title: "YehSeq PDAC Pi - survival"
-output: html_document
----
 
-```{r, include=F}
 library(stringr)
 library(openxlsx)
 library(survival)
@@ -12,11 +7,8 @@ library(survivalAnalysis)
 #library(forestplot)
 library(magrittr)
 library(dplyr)
-```
 
-# compare calls
-```{r, , message = FALSE , results = TRUE,  echo=FALSE, warning=FALSE, fig.show=TRUE, fig.width= 8, fig.height= 8}
-dataSet <- readRDS("yehseq_pdac_pi.decaf_freeze.rds")
+dataSet <- readRDS("../../data/newly_generated/UNC_bulk.rds")
 
 ## parse clincial ---------------------------------------------------------------------
 survDat <- data.frame(sampID = colnames(dataSet$ex), 
@@ -47,12 +39,10 @@ survDat$time <- as.numeric(survDat$time)
 survDat$DeCAF <- factor(survDat$DeCAF , levels = c("permCAF","restCAF"))
 survDat$PurIST <- factor(survDat$PurIST, levels = c("Basal-like","Classical"))
 survDat0 <- survDat
-write.xlsx(survDat0, "Supplementary Table S6 - clinical and molecular data - UNC-bulk.xlsx")
-```
+write.xlsx(survDat0, "../../results/tables/UNC-bulk_clinical_and_molecular_data.xlsx")
 
-# survival
-```{r, , message = FALSE , results = TRUE,  echo=FALSE, warning=FALSE, fig.show=TRUE, fig.width= 8, fig.height= 8}
-pdf("../final_figures/yehseq_surv.pdf")
+
+pdf("../../results/figures/yehseq_surv.pdf")
 
 # DeCAF --------------------------------------------------------------------
 survDat <- survDat0
@@ -288,4 +278,3 @@ p <- ggforest(fit,
 print(p)
 
 dev.off()
-```
