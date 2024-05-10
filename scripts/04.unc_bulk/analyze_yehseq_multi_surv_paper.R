@@ -8,9 +8,8 @@ library(survivalAnalysis)
 library(magrittr)
 library(dplyr)
 
-dataSet <- readRDS("yehseq_pdac_pi.decaf_freeze.rds")
-clinicalDatParsed <- readRDS("yehseq_pdac_pi.decaf_freeze_clinicalParsed_111723.rds")
-clinicalDatParsed <- clinicalDatParsed$clinicalDatParsed
+dataSet <- readRDS("../../data/newly_generated/UNC_bulk.rds")
+clinicalDatParsed <- dataSet$clinicalDatParsed
 
 ## parse clincial ---------------------------------------------------------------------
 survDat <- data.frame(sampID = colnames(dataSet$ex), 
@@ -49,27 +48,8 @@ survDat$Stage <- factor(survDat$Stage, levels = c("I","II","III"))
 survDat$Margin[which(survDat$Margin %in% c("Close","Negative"))] <- "Close/Negative"
 survDat0 <- survDat
 
-pdf("yehsesq_multi_surv.pdf")
-# +differentiation
-survDat <- survDat0[complete.cases(survDat0), ]
+pdf("../../results/figures/yehsesq_multi_surv.pdf")
 
-fit <- coxph(formula = Surv(time, event) ~ DeCAF+PurIST+Stage+Differentiation+Margin+Lymphovascular.Invasion, data = survDat)
-p <- ggforest(fit, 
-              main = "+Differentiation",
-              fontsize = 1,
-              cpositions = c(0.02, 0.13, 0.32)) 
-print(p)
-
-# -differentiation
-survDat <- survDat0[, -which(names(survDat0) %in% "Differentiation")]
-survDat <- survDat[complete.cases(survDat), ]
-
-fit <- coxph(formula = Surv(time, event) ~ DeCAF+PurIST+Stage+Margin+Lymphovascular.Invasion, data = survDat)
-p <- ggforest(fit, 
-              main = "-Differentiation",
-              fontsize = 1,
-              cpositions = c(0.02, 0.13, 0.32)) 
-print(p)
 
 # Close/Negative
 survDat <- survDat0[survDat0$Margin == "Close/Negative",]
@@ -82,17 +62,5 @@ p <- ggforest(fit,
               cpositions = c(0.02, 0.13, 0.32)) 
 print(p)
 
-# Close/Negative
-survDat <- survDat0[survDat0$Margin == "Close/Negative",]
-survDat <- survDat[complete.cases(survDat), ]
-
-fit <- coxph(formula = Surv(time, event) ~ DeCAF+PurIST+Stage+Lymphovascular.Invasion, data = survDat)
-p <- ggforest(fit, 
-              main = "Margin = close or negative, -Differentiation",
-              fontsize = 1,
-              cpositions = c(0.02, 0.13, 0.32)) 
-print(p)
-
 dev.off()
-
 

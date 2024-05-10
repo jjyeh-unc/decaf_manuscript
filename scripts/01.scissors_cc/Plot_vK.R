@@ -25,7 +25,7 @@ tmpGeneInfo$Color[which(tmpGeneInfo$Color %in% "coral")] <- "turquoise4"
 subtypeGeneList[[18]] <- tmpGeneInfo  
 
 ############################## plot ##############################
-pdf("../../results/figures/heatmap/heatmap_vK.pdf")
+pdf("../../results/figures/heatmap_vK.pdf")
 # for legend
 
 for (rDataName in c("TCGA_PAAD","CPTAC","Dijk","Moffitt_GEO_array","Grunwald","Hayashi","Linehan","Olive","Puleo_array","PACA_AU_array","PACA_AU_seq")) {

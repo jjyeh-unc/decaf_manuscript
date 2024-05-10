@@ -11,20 +11,20 @@ load("../R/PurIST/fitteds_public_2019-02-12.Rdata")
 source("../R/PurIST/functions.R")
 
 # load functions
-file.sources <- list.files("../R/R/",pattern="*.R")
-file.sources <- paste("../R/R/", file.sources, sep="")
+file.sources <- list.files("../R/",pattern="*.R")
+file.sources <- paste("../R/", file.sources, sep="")
 sapply(file.sources, source)
 
 # load subtype info
 ### This is a combined subtype object with
 ### subtypeColList, subtypeGeneList, subtypeList and schemaList
-load("../data/cmbSubtypes.RData")
+load("../../data/cmbSubtypes.RData")
 print("Subtype schemas available for use:")
 print(schemaList)
 
 # compare calls
 
-dataSet <- readRDS("yehseq_pdac_pi.decaf_freeze.rds")
+dataSet <- readRDS("../../data/newly_generated/UNC_bulk.rds")
 
 ## parse clincial ---------------------------------------------------------------------
 survDat <- data.frame(sampID = colnames(dataSet$ex), 
@@ -56,10 +56,9 @@ survDat$pathCall.di <- c("Coll","Myx")[as.numeric(survDat$pathCall.di)+1]
 survDat$pathCall.di <- factor(survDat$pathCall.di, levels = c("Myx","Coll"))
 survDat0 <- survDat
 
-
 # survival
 
-pdf("../figure_DeCAF/yehseq_path.pdf")
+pdf("../../results/figures/yehseq_path.pdf")
 
 # pathCall --------------------------------------------------------------------
 survDat <- survDat0

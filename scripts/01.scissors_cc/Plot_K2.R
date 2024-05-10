@@ -25,7 +25,7 @@ tmpGeneInfo$Color[which(tmpGeneInfo$Color %in% "coral")] <- "turquoise4"
 subtypeGeneList[[18]] <- tmpGeneInfo  
 
 ############################## plot ##############################
-pdf("../../results/figures/heatmap/heatmap_K2.pdf")
+pdf("../../results/figures/heatmap_K2.pdf")
 # for legend
 plot.new()
 legend(xy.coords(x=0,y=.98),
