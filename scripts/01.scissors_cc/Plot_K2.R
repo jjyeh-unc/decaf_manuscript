@@ -7,14 +7,14 @@ library(ConsensusClusterPlus) # R3.xx and R4.xx have different versions of Conse
 library("RColorBrewer")
 
 # load functions
-file.sources <- list.files("../R/R/",pattern="*.R")
-file.sources <- paste("../R/R/", file.sources, sep="")
+file.sources <- list.files("../R/",pattern="*.R")
+file.sources <- paste("../R/", file.sources, sep="")
 sapply(file.sources, source)
 
 # load subtype info
 ### This is a combined subtype object with
 ### subtypeColList, subtypeGeneList, subtypeList and schemaList
-load("../data/cmbSubtypes.RData")
+load("../../data/cmbSubtypes.RData")
 print("Subtype schemas available for use:")
 print(schemaList)
 
@@ -25,7 +25,7 @@ tmpGeneInfo$Color[which(tmpGeneInfo$Color %in% "coral")] <- "turquoise4"
 subtypeGeneList[[18]] <- tmpGeneInfo  
 
 ############################## plot ##############################
-pdf("../figure_DeCAF/heatmap_K2.pdf")
+pdf("../../results/figures/heatmap/heatmap_K2.pdf")
 # for legend
 plot.new()
 legend(xy.coords(x=0,y=.98),
@@ -40,8 +40,8 @@ legend(xy.coords(x=0,y=.98),
        border=FALSE, bty="n",
        x.intersp = 0.5 , cex = 0.35, horiz=TRUE)
 for (rDataName in c("TCGA_PAAD","CPTAC","Dijk","Moffitt_GEO_array","Grunwald","Hayashi","Linehan","Olive","Puleo_array","PACA_AU_array","PACA_AU_seq")) {
-  dataSet <- readRDS(paste("../data_DeCAF/",rDataName,".rds",sep=""))
-  cafSubtype <- readRDS(paste("../data_DeCAF/",rDataName,".caf_subtype.rds",sep=""))
+  dataSet <- readRDS(paste("../../data/public_PDAC/",rDataName,".rds",sep=""))
+  cafSubtype <- readRDS(paste("../../data/public_PDAC/",rDataName,".caf_subtype.rds",sep=""))
   
   cafSubtype$SCISSORS_CAF_K2_top25.unscaled.K2$ColSideColors[which(cafSubtype$SCISSORS_CAF_K2_top25.unscaled.K2$ColSideColors %in% "darkgreen")] <- "violetred1"
   cafSubtype$SCISSORS_CAF_K2_top25.unscaled.K2$ColSideColors[which(cafSubtype$SCISSORS_CAF_K2_top25.unscaled.K2$ColSideColors %in% "coral")] <- "turquoise4"

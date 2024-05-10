@@ -5,10 +5,12 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 # load libraries
 library(ConsensusClusterPlus) # R3.xx and R4.xx have different versions of ConsensusClusterPlus
 library("RColorBrewer")
+library(openxlsx)
+library(stringr)
 
 # load functions
-file.sources <- list.files("../R/R/",pattern="*.R")
-file.sources <- paste("../R/R/", file.sources, sep="")
+file.sources <- list.files("../R/",pattern="*.R")
+file.sources <- paste("../R/", file.sources, sep="")
 sapply(file.sources, source)
 
 # load PurIST
@@ -18,13 +20,13 @@ source("../R/PurIST/functions.R")
 # load subtype info
 ### This is a combined subtype object with
 ### subtypeColList, subtypeGeneList, subtypeList and schemaList
-load("../data/cmbSubtypes.RData")
+load("../../data/cmbSubtypes.RData")
 print("Subtype schemas available for use:")
 print(schemaList)
 
 ############################## Subtyping ##############################
 rDataName <- "Hayashi"
-dataSet <- readRDS(paste("../data_DeCAF/",rDataName,".rds",sep=""))
+dataSet <- readRDS(paste("../../data/public_PDAC/",rDataName,".rds",sep=""))
 sampSub <- which(dataSet$sampInfo$`Primary/_Met` %in% "Primary")
 cafSubtype <- list()
 cafSubtype$Subtype <- data.frame(sampID = colnames(dataSet$ex), stringsAsFactors = FALSE)
@@ -109,7 +111,5 @@ cafSubtype$Subtype$Puleo.classifier <- FALSE
 cafSubtype$Subtype$Puleo.classifier[which(!is.na(cafSubtype$Subtype$Puleo))] <- TRUE
 
 # save
-saveRDS(cafSubtype, file = paste("../data_DeCAF/",rDataName,".caf_subtype.rds",sep = ""))
+saveRDS(cafSubtype, file = paste("../../data/public_PDAC/",rDataName,".caf_subtype.rds",sep = ""))
 
-# plot 
-#Plot_merged_heatmap.Feb2023(rDataName, dataSet, cafSubtype, sampSub)

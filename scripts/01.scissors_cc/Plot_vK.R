@@ -7,14 +7,14 @@ library(ConsensusClusterPlus) # R3.xx and R4.xx have different versions of Conse
 library("RColorBrewer")
 
 # load functions
-file.sources <- list.files("../R/R/",pattern="*.R")
-file.sources <- paste("../R/R/", file.sources, sep="")
+file.sources <- list.files("../R/",pattern="*.R")
+file.sources <- paste("../R/", file.sources, sep="")
 sapply(file.sources, source)
 
 # load subtype info
 ### This is a combined subtype object with
 ### subtypeColList, subtypeGeneList, subtypeList and schemaList
-load("../data/cmbSubtypes.RData")
+load("../../data/cmbSubtypes.RData")
 print("Subtype schemas available for use:")
 print(schemaList)
 
@@ -25,12 +25,12 @@ tmpGeneInfo$Color[which(tmpGeneInfo$Color %in% "coral")] <- "turquoise4"
 subtypeGeneList[[18]] <- tmpGeneInfo  
 
 ############################## plot ##############################
-pdf("../figure_DeCAF/heatmap_vK.pdf")
+pdf("../../results/figures/heatmap/heatmap_vK.pdf")
 # for legend
 
 for (rDataName in c("TCGA_PAAD","CPTAC","Dijk","Moffitt_GEO_array","Grunwald","Hayashi","Linehan","Olive","Puleo_array","PACA_AU_array","PACA_AU_seq")) {
-  dataSet <- readRDS(paste("../data_DeCAF/",rDataName,".rds",sep=""))
-  cafSubtype <- readRDS(paste("../data_DeCAF/",rDataName,".caf_subtype.rds",sep=""))
+  dataSet <- readRDS(paste("../../data/public_PDAC/",rDataName,".rds",sep=""))
+  cafSubtype <- readRDS(paste("../../data/public_PDAC/",rDataName,".caf_subtype.rds",sep=""))
   
   cafSubtype$SCISSORS_CAF_K2_top25.unscaled.K2$ColSideColors[which(cafSubtype$SCISSORS_CAF_K2_top25.unscaled.K2$ColSideColors %in% "darkgreen")] <- "violetred1"
   cafSubtype$SCISSORS_CAF_K2_top25.unscaled.K2$ColSideColors[which(cafSubtype$SCISSORS_CAF_K2_top25.unscaled.K2$ColSideColors %in% "coral")] <- "turquoise4"
@@ -52,7 +52,6 @@ for (rDataName in c("TCGA_PAAD","CPTAC","Dijk","Moffitt_GEO_array","Grunwald","H
   
   #Plot_heatmap_CC_CAF(cafSubtype$SCISSORS_CAF_K2_top25.unscaled.K2, "SCISSORS_CAF_K2_top25", ColSideColors, paste0(rDataName," SCISSORS"))
   Plot_heatmap_CC_CAF(cafSubtype$SCISSORS_CAF_K2_top25.unscaled.vK, "SCISSORS_CAF_K2_top25", ColSideColors, paste0(rDataName," SCISSORS"))
-  
   
 }
 
