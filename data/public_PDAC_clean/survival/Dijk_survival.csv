@@ -1,0 +1,91 @@
+"ID","time","status","surv_whitelist","SCISSORS_CAF","SCISSORS_CAF_K4","SCISSORS_CAF_ALL","SCISSORS_CAF_K2","MS_K2","Elyada_CAF","PurIST","Maurer","Puleo","DeCAF","DeCAF_prob"
+"ERR2603466",11.01,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Pure Basal-like","permCAF",0.994462085754022
+"ERR2603467",12.29,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.972185984054384
+"ERR2603468",15.01,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.711238166634458
+"ERR2603469",8.84,1,TRUE,NA,"Mixed","Mixed","permCAF","Normal","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.0229037387565676
+"ERR2603470",39.33,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.972185984054384
+"ERR2603471",17.64,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Stroma Activated","permCAF",0.965272005018336
+"ERR2603472",15.44,1,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.998826874466896
+"ERR2603473",52.83,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Desmoplastic","permCAF",0.994462085754022
+"ERR2603474",119.85,0,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.998826874466896
+"ERR2603475",21.45,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Desmoplastic","permCAF",0.786023546310807
+"ERR2603476",65.41,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","restCAF","Normal","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.00324811460408253
+"ERR2603477",95.44,0,TRUE,NA,NA,"Absent","restCAF","Normal","iCAF","Classical","Immune-rich","Pure Classical","permCAF",0.709508693685993
+"ERR2603478",71.23,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Normal","iCAF","Classical","ECM-rich","Pure Classical","restCAF",0.00218022881930743
+"ERR2603479",68.11,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.994462085754022
+"ERR2603480",21.49,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Normal","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0156430465533532
+"ERR2603481",91.5,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","restCAF","Activated","myCAF","Classical","ECM-rich","Immune Classical","restCAF",0.000229580061847988
+"ERR2603482",58.25,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.00324811460408253
+"ERR2603483",89.1,0,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.94443220152151
+"ERR2603484",15.7,1,TRUE,NA,"Mixed","Mixed","permCAF","Normal","myCAF","Classical","ECM-rich","Immune Classical","restCAF",0.269735421297017
+"ERR2603485",12.02,1,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.994462085754022
+"ERR2603486",29.04,1,TRUE,NA,NA,"Absent","restCAF","Normal","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.00638559635174483
+"ERR2603487",26.18,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.94087326957571
+"ERR2603488",58.25,0,TRUE,NA,"Mixed","Mixed","permCAF","Normal","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.307839936292444
+"ERR2603489",31.74,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.998826874466896
+"ERR2603490",12.22,1,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.994002117888146
+"ERR2603491",36.6,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.0229037387565676
+"ERR2603492",9.59,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.767884290338677
+"ERR2603493",43.01,0,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.0117462220831305
+"ERR2603494",33.18,0,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","myCAF","Classical","ECM-rich","Immune Classical","restCAF",0.000229580061847988
+"ERR2603495",30.19,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Desmoplastic","restCAF",0.00242033722496224
+"ERR2603496",16.66,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Basal-like","ECM-rich","Desmoplastic","restCAF",0.143765833361313
+"ERR2603497",19.78,1,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.94443220152151
+"ERR2603498",10.12,1,TRUE,NA,"Mixed","Mixed","restCAF","Normal","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.0931098082098721
+"ERR2603499",22.93,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.994462085754022
+"ERR2603500",18.5,0,TRUE,NA,NA,"Absent","restCAF","Normal","iCAF","Basal-like","Immune-rich","Pure Basal-like","restCAF",0.307839936292444
+"ERR2603501",10.78,1,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Pure Basal-like","permCAF",0.994462085754022
+"ERR2603502",9.43,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Normal","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.000229580061847988
+"ERR2603503",37.72,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Normal","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.00499877900479857
+"ERR2603504",6.67,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Pure Basal-like","permCAF",0.998826874466896
+"ERR2603505",31.8,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.94443220152151
+"ERR2603506",29.17,1,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.767884290338677
+"ERR2603507",8.31,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.987915843616997
+"ERR2603508",10.48,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Normal","myCAF","Classical","ECM-rich","Immune Classical","restCAF",0.000229580061847988
+"ERR2603509",14,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.994462085754022
+"ERR2603510",52.5,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","restCAF","Normal","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.00148136494260772
+"ERR2603511",16.49,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Stroma Activated","permCAF",0.994462085754022
+"ERR2603512",31.77,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Immune Classical","permCAF",0.695750791705217
+"ERR2603513",7.39,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.709508693685993
+"ERR2603514",5.78,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.000777017383556214
+"ERR2603515",21.52,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Basal-like","ECM-rich","Desmoplastic","permCAF",0.744972800630452
+"ERR2603516",81.48,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Desmoplastic","restCAF",0.146840086093434
+"ERR2603517",27.01,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.994462085754022
+"ERR2603518",16.33,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.994462085754022
+"ERR2603519",17.41,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.998826874466896
+"ERR2603520",17.08,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.994462085754022
+"ERR2603521",11.93,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Normal","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.00148136494260772
+"ERR2603522",8.21,1,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Basal-like","permCAF",0.998826874466896
+"ERR2603523",2.17,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Basal-like","ECM-rich","Stroma Activated","permCAF",0.960225559114588
+"ERR2603524",17.64,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.0009937560452794
+"ERR2603525",14.69,1,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.994462085754022
+"ERR2603526",8.08,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Stroma Activated","permCAF",0.994462085754022
+"ERR2603527",56.97,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.998826874466896
+"ERR2603528",51.84,0,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.000504142457404649
+"ERR2603529",11.27,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Stroma Activated","permCAF",0.972185984054384
+"ERR2603530",14.52,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.994462085754022
+"ERR2603531",8.77,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Pure Basal-like","permCAF",0.998826874466896
+"ERR2603532",9.89,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.94443220152151
+"ERR2603533",11.01,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Stroma Activated","permCAF",0.972185984054384
+"ERR2603534",7.39,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.94087326957571
+"ERR2603535",28.98,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.972185984054384
+"ERR2603536",37.06,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.994462085754022
+"ERR2603537",11.17,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Stroma Activated","permCAF",0.994462085754022
+"ERR2603538",30.82,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.994462085754022
+"ERR2603539",21.32,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.695750791705217
+"ERR2603540",24.84,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.94443220152151
+"ERR2603541",2.04,1,TRUE,NA,NA,"Absent","restCAF","Normal","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.131349883588498
+"ERR2603542",18.07,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Normal","iCAF","Classical","ECM-rich","Immune Classical","restCAF",0.000229580061847988
+"ERR2603543",33.71,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.94443220152151
+"ERR2603544",31.8,0,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Basal-like","ECM-rich","Pure Basal-like","permCAF",0.981491175780394
+"ERR2603545",6.01,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.94443220152151
+"ERR2603546",5.49,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Basal-like","ECM-rich","Stroma Activated","permCAF",0.994462085754022
+"ERR2603547",7.98,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.987915843616997
+"ERR2603548",8.41,1,TRUE,NA,"Mixed","Mixed","restCAF","Activated","myCAF","Classical","ECM-rich","Desmoplastic","restCAF",0.0015953775710829
+"ERR2603549",12.45,1,TRUE,"permCAF","permCAF","permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.998826874466896
+"ERR2603550",8.02,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.994462085754022
+"ERR2603551",16.2,1,TRUE,NA,"Mixed","Mixed","permCAF","Normal","myCAF","Classical","ECM-rich","Stroma Activated","restCAF",0.0504049483930745
+"ERR2603552",95.38,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.600973099479165
+"ERR2603553",11.5,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","myCAF","Classical","ECM-rich","Desmoplastic","restCAF",0.0156430465533532
+"ERR2603554",32.03,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Normal","myCAF","Classical","ECM-rich","Pure Classical","restCAF",0.000229580061847988
+"ERR2603555",16.85,1,TRUE,NA,"Mixed","Mixed","permCAF","Activated","myCAF","Classical","ECM-rich","Desmoplastic","restCAF",0.0475858663207376
