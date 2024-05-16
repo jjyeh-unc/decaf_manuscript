@@ -290,7 +290,9 @@ dev.off()
 table = Table_Classif_Perform(subtype_data = SubtypeCmb, DeCAF_data = DeCAFCmb,  training = training)
 write.csv(table, "../../results/tables/DeCAF_Metrics_ByStudy.csv")
 
-
+kable(table, "latex", booktabs = T) %>%
+  kable_styling(latex_options = c("striped","scale_down"),full_width = F)  %>% 
+  save_kable(file = "../../results/tables/DeCAF_Metrics_ByStudy.csv")
 
 
 
