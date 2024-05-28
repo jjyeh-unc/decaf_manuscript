@@ -1,0 +1,4 @@
+#Rirst we made the mixture_data for the 12 bulkRNA datasets, 
+#Then we run cibersort on these 12 mixture dastasets with the LM22 signature matrix
+#We use docker to run the cibersort on the 12 bulkRNA dastaset, the command used as following:
+docker run -v E:/UNC-technician/CIBERSORT/public_data_11/mixture_data:/src/data  -v E:/UNC-technician/CIBERSORT/public_data_11/results/TCGA_PAAD:/src/outdir   cibersortx/fractions  --username changfei@email.unc.edu --token 2b435e5ae0d226f4cb7b574ceb5fb80a --sigmatrix  LM22.txt  --mixture TCGA_PAAD.txt  --rmbatchBmode TRUE  --perm 500
