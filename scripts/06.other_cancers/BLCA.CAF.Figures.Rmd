@@ -1,0 +1,345 @@
+---
+title: "CAF Analysis"
+author: "J.Damrauer"
+date: "2023-12-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+```{r Loading libraries, echo=FALSE, message=FALSE,warning=FALSE}
+library(ggplot2)
+library(ggpubr)
+library(tidyr)
+library(stats)
+library(forcats)
+library(plyr)
+library(stats)
+library(reshape2)
+library(plyr)
+library(dplyr)
+library(survival)
+library(survminer)
+library(ComplexHeatmap)
+library(circlize)
+library(tidyverse)
+library(rstatix)
+library(ggpubr)
+library(GGally)
+library(ggfortify)
+library(gridExtra)
+library(rstatix)
+library(ggcorrplot)
+library(impute)
+library(fgsea)
+library(ggVennDiagram)
+```
+
+# Correlation between CAF subtypes and RCC/BCa features
+**CIBERSORTx data was generated in w/ 500 permuations [QN disabled]
+
+
+## UROMOL
+
+<https://www.nature.com/articles/s41467-021-22465-w>
+
+URMOL is a Non-muscle invasive cohort and proposed a NMIBC subtyping scheme Class 1 [FGFR3 mutant], Class 2a [TP53 mutant and aggressive], Class 2b [TP53 mutant, EMT, immune high] and Class 3[FGFR3 mutant, immune low].
+
+```{r Comparison Plots - UROMOL, echo=FALSE,message=FALSE, warning=FALSE}
+
+UROMOL<-read.table("DataOutput/UROMOL.CAF.txt", sep="\t", header=T, row.names=1) %>%
+subset(!(Staging %in% "CIS"))
+
+factor(TCGA.1$Consensus, levels=c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS", "NE-like"))
+
+UROMOL.Count.Consensus<-UROMOL %>%
+    subset(Consensus %in% c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS", "NE-like")) %>%
+  dplyr::count(Consensus, DeCAF)
+
+UROMOL.Consensus.stats<-chisq_test(UROMOL$DeCAF, UROMOL$Consensus)
+
+ggplot(UROMOL.Count.Consensus, aes(x=factor(Consensus, levels=c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS", "NE-like")), y=n, fill=DeCAF)) +
+  ggtitle("CAF subtype by Consensus Subtype")+
+  theme(text = element_text(size = 12), axis.text.x = element_text(angle = 45, hjust=1))+
+  geom_bar(position="fill", stat = "identity")+
+  ylab("patients")+
+  xlab("")+
+ geom_text(aes(label = paste0(n)), position = position_fill(vjust = 0.5),
+            col="black", size=3)+
+      geom_signif(annotations =paste("Chi-Square p =",UROMOL.Consensus.stats$p), y_position = 1.05,
+              tip_length = 0,xmin="Ba/Sq", xmax="LumNS")
+
+ggplot(UROMOL, aes(x=factor(Consensus, levels=c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS", "NE-like")), y=DeCAF.prob)) + 
+  ggtitle("DeCAF_score")+
+  labs(x="", y="DeCAF_score")+
+  geom_boxplot(outlier.shape = NA, lwd=1)+
+  theme_classic(base_size=15)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  geom_jitter(aes(color=DeCAF), shape=16, fill="gray", alpha=.75, size=3, position=position_jitter(0.2), na.rm=TRUE)+
+  stat_compare_means()
+
+
+UROMOL.Count.Staging<-UROMOL %>%
+    subset(Staging %in% c("LG-Ta","LG-T1", "HG-Ta", "HG-T1")) %>%
+  dplyr::count(Staging, DeCAF)
+
+UROMOL.Staging.stats<-chisq_test(UROMOL$DeCAF, UROMOL$Staging)
+
+ggplot(UROMOL.Count.Staging, aes(x=factor(Staging, levels=c("LG-Ta","LG-T1", "HG-Ta", "HG-T1")), y=n, fill=DeCAF)) +
+  ggtitle("CAF subtype by Grade and Stage")+
+  theme(text = element_text(size = 12), axis.text.x = element_text(angle = 45, hjust=1))+
+  geom_bar(position="fill", stat = "identity")+
+  ylab("patients")+
+  xlab("")+
+ geom_text(aes(label = paste0(n)), position = position_fill(vjust = 0.5),
+            col="black", size=3)+
+      geom_signif(annotations =paste("Chi-Square p =",UROMOL.UROMOL.stats$p), y_position = 1.05,
+              tip_length = 0,xmin="LG-Ta", xmax="HG-T1")
+
+ggplot(UROMOL, aes(x=factor(Staging, levels=c("LG-Ta","LG-T1", "HG-Ta", "HG-T1")), y=DeCAF.prob)) + 
+  ggtitle("DeCAF_score")+
+  labs(x="", y="DeCAF_score")+
+  geom_boxplot(outlier.shape = NA, lwd=1)+
+  theme_classic(base_size=15)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  geom_jitter(aes(color=DeCAF), shape=16, fill="gray", alpha=.75, size=3, position=position_jitter(0.2), na.rm=TRUE)+
+  stat_compare_means()
+
+
+UROMOL.Count.UROMOL<-UROMOL %>%
+    subset(UROMOL %in% c("Class 1", "Class 2a", "Class 2b", "Class 3")) %>%
+  dplyr::count(UROMOL, DeCAF)
+
+UROMOL.UROMOL.stats<-chisq_test(UROMOL$DeCAF, UROMOL$UROMOL)
+
+ggplot(UROMOL.Count.UROMOL, aes(x=UROMOL, y=n, fill=DeCAF)) +
+  ggtitle("CAF subtype by UROMOL Subtype")+
+  theme(text = element_text(size = 12), axis.text.x = element_text(angle = 45, hjust=1))+
+  geom_bar(position="fill", stat = "identity")+
+  ylab("patients")+
+  xlab("")+
+ geom_text(aes(label = paste0(n)), position = position_fill(vjust = 0.5),
+            col="black", size=3)+
+      geom_signif(annotations =paste("Chi-Square p =",UROMOL.UROMOL.stats$p), y_position = 1.05,
+              tip_length = 0,xmin="Class 1", xmax="Class 3")
+
+ggplot(UROMOL, aes(x=UROMOL, y=DeCAF.prob)) + 
+  ggtitle("DeCAF_score")+
+  labs(x="", y="DeCAF_score")+
+  geom_boxplot(outlier.shape = NA, lwd=1)+
+  theme_classic(base_size=15)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  geom_jitter(aes(color=DeCAF), shape=16, fill="gray", alpha=.75, size=3, position=position_jitter(0.2), na.rm=TRUE)+
+  stat_compare_means()
+
+
+
+fit<- survfit(Surv(Prog.Time, Progression) ~DeCAF , data=UROMOL)
+ggsurvplot(fit, UROMOL,
+                 pval = TRUE,
+           risk.table = TRUE,
+                 surv.median.line = "hv",
+           legend.labs = c("permCAF", "restCAF"),
+                 legend.title=("CAF Subtype"),
+           title="UROMOL: Progression Free Survival", 
+           short.panel.labs=TRUE,
+                 ggtheme = theme_bw())
+
+fit<- survfit(Surv(Prog.Time, Progression) ~grade , data=UROMOL)
+ggsurvplot(fit, UROMOL,
+                 pval = TRUE,
+           risk.table = TRUE,
+                 surv.median.line = "hv",
+            legend.labs =c("Strong permCAF", "Likely permCAF", "Lean permCAF",
+                                            "Lean restCAF", "Likely restCAF", "Strong restCAF"),
+                  legend.title=("CAF Subtype"),
+            title="UROMOL: Progression Free Survival", 
+                 short.panel.labs=TRUE,
+                 ggtheme = theme_bw())
+
+ggforest(coxph(Surv(Prog.Time, Progression) ~DeCAF + UROMOL, data=UROMOL), main="UROMOL: Progression Free Survival")
+
+```
+
+## TCGA
+
+[https://linkinghub.elsevier.com/retrieve/pii/S0092-8674(17)31056-5](https://linkinghub.elsevier.com/retrieve/pii/S0092-8674(17)31056-5){.uri}
+
+Data from the 2017 TCGA marker paper on muscle invasive bladder cancer (pre-IO approval)
+Metastatic patients were removed (only M=0 patients are in the anlaysis)
+
+```{r Comparison Plots - TCGA, echo=FALSE,message=FALSE, warning=FALSE}
+
+TCGA<-read.table("New.TCGA.Survival.txt", sep="\t", header=T, row.names=1)
+
+TCGA.1<-TCGA %>%
+  subset(M_stage %in% c("M0"))
+
+TCGA.Count.Consensus<-TCGA.1 %>%
+  dplyr::count(Consensus, DeCAF)
+
+TCGA.Consensus.stats<-chisq_test(TCGA.1$DeCAF, TCGA.1$Consensus)
+ 
+ggplot(TCGA.Count.Consensus, aes(x=factor(TCGA.Count.Consensus$Consensus, levels=c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS", "NE-like")), y=n, fill=DeCAF)) +
+  ggtitle("CAF subtype by Consensus Subtype")+
+  theme(text = element_text(size = 12), axis.text.x = element_text(angle = 45, hjust=1))+
+  geom_bar(position="fill", stat = "identity")+
+  ylab("patients")+
+  xlab("TCGA Tumors")+
+ geom_text(aes(label = paste0(n)), position = position_fill(vjust = 0.5),
+            col="black", size=3)+
+      geom_signif(annotations =paste("Chi-Square p =",TCGA.Consensus.stats$p), y_position = 1.05,
+              tip_length = 0,xmin="Ba/Sq", xmax="LumNS")
+
+subtype<-factor(TCGA.1$Consensus, levels=c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS", "NE-like"))
+
+ggplot(TCGA.1, aes(x=subtype, y=DeCAF.prob)) + 
+  ggtitle("DeCAF_score")+
+  labs(x="", y="DeCAF_score")+
+  geom_boxplot(outlier.shape = NA, lwd=1)+
+  theme_classic(base_size=15)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  geom_jitter(aes(color=DeCAF), shape=16, fill="gray", alpha=.75, size=3, position=position_jitter(0.2), na.rm=TRUE)+
+  stat_compare_means()
+
+
+
+fit<- survfit(Surv(OS.time.5, OS.5) ~DeCAF, data=TCGA.1)
+
+ggsurvplot(fit, TCGA.1,
+                    pval = TRUE,
+           risk.table = TRUE,
+                 surv.median.line = "hv",
+                 legend.labs = c("permCAF", "restCAF"),
+                 legend.title=("CAF Subtype"),
+           title="TCGA: Disease Free Survival", 
+           xlab="Time (months)",
+                 short.panel.labs=TRUE,
+                 ggtheme = theme_bw())
+
+
+fit<- survfit(Surv(OS.time.5, OS.5) ~DeCAF + UNC, data=TCGA.1)
+
+ggsurvplot(fit, TCGA.1,
+                    pval = TRUE,
+           risk.table = TRUE,
+                 surv.median.line = "hv",
+                 legend.labs = c("permCAF:Basal", "permCAF:Luminal", "restCAF:Basal", "restCAF:Luminal"),
+                 legend.title=("CAF Subtype"),
+           title="TCGA: Disease Free Survival", 
+           xlab="Time (months)",
+                 short.panel.labs=TRUE,
+                 ggtheme = theme_bw())
+
+
+
+```
+
+## IMvigor210
+
+<https://www.nature.com/articles/nature25501>
+
+Data from the phase II - IMvigor210 data. Pre-treatment metastatic UC samples from patients that went on to receive atezolizumab.
+
+Platinum therapy subgroups -  Did patient receive platinum based chemotherapy [Y/N]. If yes, was the sample collected before or after platinum treatment.
+
+```{r Comparison Plots - IMvigor, echo=FALSE, message=FALSE, warning=FALSE}
+
+imvig<-read.table("DataOutput/IMvigor.CAF.20231209.txt", sep="\t", header=T, row.names=1)
+IMVIG.na<-subset(IMVIG, !(is.na(binaryResponse)))
+
+ggplot(IMVIG.na, aes(x=binaryResponse, y=DeCAF_prob)) + 
+  labs(x="Best Response", y="DeCAF_prob")+
+  geom_boxplot(outlier.shape = NA, lwd=1)+
+  theme_classic(base_size=15)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  geom_jitter(aes(color=DeCAF),shape=16, fill="gray", alpha=.75, size=3, position=position_jitter(0.2), na.rm=TRUE)+
+  stat_compare_means(method="t.test")
+
+fit<- survfit(Surv(os, censOS) ~DeCAF, data=imvig)
+ggsurvplot(fit, imvig,
+                    pval = TRUE,
+           risk.table = TRUE,
+                 surv.median.line = "hv",
+                 legend.title=("CAF Subtype"),
+           title="IMvigor210: Overall Survival", 
+           xlab="Time (months)",
+                 short.panel.labs=TRUE,
+                 ggtheme = theme_bw())
+
+ggforest(coxph(Surv(os, censOS) ~DeCAF, data=imvig))
+
+
+IMVIG.Count.Consensus.stat<-chisq_test(IMVIG$DeCAF, IMVIG$Consensus)
+IMVIG.Count.UNC.stat<-chisq_test(IMVIG$DeCAF, IMVIG$UNC)
+
+ggplot(IMVIG.Count.Consensus, aes(x=factor(IMVIG.Count.Consensus$Consensus, levels=c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS")), y=n, fill=DeCAF)) +
+  ggtitle("CAF subtype by Consensus Subtype")+
+  theme(text = element_text(size = 12), axis.text.x = element_text(angle = 45, hjust=1))+
+  geom_bar(position="fill", stat = "identity")+
+  ylab("patients")+
+  xlab("IMvigor210 Tumors")+
+ geom_text(aes(label = paste0(n)), position = position_fill(vjust = 0.5),
+            col="black", size=3)+
+      geom_signif(annotations =paste("Chi-Square p =",IMVIG.Count.Consensus.stat$p), y_position = 1.05,
+              tip_length = 0,xmin="Ba/Sq", xmax="LumNS")
+
+
+IMVIG<-imvig %>%
+    subset(Consensus %in% c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS"))
+
+IMVIG.Count.Consensus<-IMVIG %>%
+    subset(Consensus %in% c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS")) %>%
+  dplyr::count(Consensus, DeCAF)
+
+IMVIG.Count.UNC<-IMVIG %>%
+  dplyr::count(UNC, DeCAF)
+
+subtype<-factor(IMVIG$Consensus, levels=c("Ba/Sq", "Stroma-rich", "LumP", "LumU", "LumNS", "NE-like"))
+
+ggplot(IMVIG, aes(x=subtype, y=DeCAF_prob)) + 
+  ggtitle("DeCAF_score")+
+  labs(x="", y="DeCAF_score")+
+  geom_boxplot(outlier.shape = NA, lwd=1)+
+  theme_classic(base_size=15)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  geom_jitter(aes(color=DeCAF), shape=16, fill="gray", alpha=.75, size=3, position=position_jitter(0.2), na.rm=TRUE)+
+  stat_compare_means()
+
+
+
+
+
+
+```
+
+
+## IMmotion
+
+<https://www.nature.com/articles/s41591-018-0053-3>
+
+RCC treated with Sunitinib (multi-RTK inhibitor), atezolizumab (anti-PD-L1), or atezolizumab + bevacizumab (anti-VEGF)
+
+```{r IMmotion}
+rcc<-read.table("IMmotion150_CAF.txt", sep="\t", header=T, row.names=1)
+
+rcc.atezo<-subset(rcc, ARM %in% "Atezo")
+
+rcc.atezo<-subset(rcc.atezo, !(is.na(BestResponse.2)))
+
+ggplot(rcc.atezo, aes(x=BestResponse.2, y=DeCAF_prob)) + 
+  labs(x="Best response \natezolizumab", y="DeCAF_prob")+
+  geom_boxplot(outlier.shape = NA, lwd=1)+
+  theme_classic(base_size=15)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  geom_jitter(aes(color=DeCAF),shape=16, fill="gray", alpha=.75, size=3, position=position_jitter(0.2), na.rm=TRUE)+
+  stat_compare_means(method="t.test")
+
+
+```
