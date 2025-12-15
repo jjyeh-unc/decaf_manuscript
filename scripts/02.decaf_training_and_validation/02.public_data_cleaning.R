@@ -21,20 +21,20 @@ Load_data_subtype <- function(rDataName) {
   
 
  
-  ## Change myCAF -> permCAF & iCAF -> restCAF
+  ## Change myCAF -> proCAF & iCAF -> restCAF
  
- dataSet$Subtype$SCISSORS_CAF_K2_top25.vK[dataSet$Subtype$SCISSORS_CAF_K2_top25.vK == "myCAF"] = "permCAF"
- dataSet$Subtype$SCISSORS_CAF_K2_top25.vK[dataSet$Subtype$SCISSORS_CAF_K2_top25.vK == "Mixed.myCAF"] = "Mixed.permCAF"
+ dataSet$Subtype$SCISSORS_CAF_K2_top25.vK[dataSet$Subtype$SCISSORS_CAF_K2_top25.vK == "myCAF"] = "proCAF"
+ dataSet$Subtype$SCISSORS_CAF_K2_top25.vK[dataSet$Subtype$SCISSORS_CAF_K2_top25.vK == "Mixed.myCAF"] = "Mixed.proCAF"
  dataSet$Subtype$SCISSORS_CAF_K2_top25.vK[dataSet$Subtype$SCISSORS_CAF_K2_top25.vK == "Mixed.iCAF"] = "Mixed.restCAF"
   dataSet$Subtype$SCISSORS_CAF_K2_top25.vK[dataSet$Subtype$SCISSORS_CAF_K2_top25.vK == "iCAF"] = "restCAF"
   dataSet$Subtype$CAF = dataSet$Subtype$SCISSORS_CAF_K2_top25.vK
-  dataSet$Subtype$SCISSORS_CAF_K2_top25.K2[dataSet$Subtype$SCISSORS_CAF_K2_top25.K2 == "myCAF"] = "permCAF"
+  dataSet$Subtype$SCISSORS_CAF_K2_top25.K2[dataSet$Subtype$SCISSORS_CAF_K2_top25.K2 == "myCAF"] = "proCAF"
   dataSet$Subtype$SCISSORS_CAF_K2_top25.K2[dataSet$Subtype$SCISSORS_CAF_K2_top25.K2 == "iCAF"] = "restCAF"
   
-  ## Change Mixed permCAF -> permCAF
+  ## Change Mixed proCAF -> proCAF
   dataSet$Subtype$CAF[dataSet$Subtype$CAF == "Mixed"] = NA
   dataSet$Subtype$CAF[dataSet$Subtype$CAF == "Absent"] = NA
-  dataSet$Subtype$CAF[dataSet$Subtype$CAF == "Mixed.permCAF"] = "permCAF"
+  dataSet$Subtype$CAF[dataSet$Subtype$CAF == "Mixed.proCAF"] = "proCAF"
   dataSet$Subtype$CAF[dataSet$Subtype$CAF == "Mixed.restCAF"] = "restCAF"
   dataSet$Subtype$CAF_K4 = dataSet$Subtype$SCISSORS_CAF_K2_top25.vK
   
@@ -238,6 +238,7 @@ classifier = decaf_classifier$classifier2
 ## Load Evaluate Classifier Function 
 source("../R/DeCAF/decaf_functions.R")
 training = unique(decaf_classifier$anno$study)
+
 
 
 

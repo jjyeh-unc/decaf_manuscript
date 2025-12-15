@@ -25,7 +25,7 @@ library(nsROC)
 library(ROCR)
 
 ## Colors for DeCAF
-DeCAFList = c("permCAF","restCAF")
+DeCAFList = c("proCAF","restCAF")
 DeCAFCol = c("violetred1","turquoise4")
 
 ############################################################
@@ -48,7 +48,7 @@ Plot_heatmap_function <- function(subtype_data, gene_data, DeCAF_data, classifie
   
   ## Transfrom Calls to Ordered Factor
   DeCAF_data$DeCAF_graded = factor(DeCAF_data$DeCAF_graded, levels = c("Strong restCAF", "Likely restCAF", "Lean restCAF",
-                                                                                           "Lean permCAF", "Likely permCAF", "Strong permCAF"))
+                                                                                           "Lean proCAF", "Likely proCAF", "Strong proCAF"))
   ## Make ColorScapr
   colscale = colorRampPalette(c("turquoise4","white", "violetred1"))(6)
   colscale2 = colorRampPalette(c("turquoise4","white", "violetred1"))(5)
@@ -63,12 +63,12 @@ Plot_heatmap_function <- function(subtype_data, gene_data, DeCAF_data, classifie
   ## Change CAF based on if K2 or K4 required
   if(CAF_type == "K4"){
     cc_subtype = subtype_data$SCISSORS_CAF_ALL[samples_subset]
-    cc_subtype_names = c("restCAF", "Mixed.restCAF","Mixed","Mixed.permCAF", "permCAF", "Absent")
+    cc_subtype_names = c("restCAF", "Mixed.restCAF","Mixed","Mixed.proCAF", "proCAF", "Absent")
     cc_colscale = colscale4
   }
   if(CAF_type == "K2"){
     cc_subtype = subtype_data$SCISSORS_CAF[samples_subset]
-    cc_subtype_names = c("restCAF", "permCAF")
+    cc_subtype_names = c("restCAF", "proCAF")
     cc_colscale = colscale3
   }
   
@@ -146,7 +146,7 @@ Plot_Pooled_ROC <- function(subtype_data, DeCAF_data,  training){
     pred = DeCAF_data$DeCAF[DeCAF_data$dataSet == testing0[i]]
     pred_p = DeCAF_data$DeCAF_prob[DeCAF_data$dataSet == testing0[i]]
     label = subtype_data$SCISSORS_CAF[subtype_data$dataSet == testing0[i]]
-    pred = prediction(prediction = pred_p, labels = as.numeric(label == "permCAF"))
+    pred = prediction(prediction = pred_p, labels = as.numeric(label == "proCAF"))
     TP = as.numeric(attr(pred,"tp")[[1]])
     FP = as.numeric(attr(pred,"fp")[[1]])
     TN = as.numeric(attr(pred,"tn")[[1]])
@@ -188,7 +188,7 @@ Table_Classif_Perform <- function(subtype_data, DeCAF_data,  training){
   
   ## Empty Vector for metrics
   N = c()
-  permCAF = c()
+  proCAF = c()
   Accuracy = c()
   Sensitivity = c()
   Specificity = c()
@@ -206,18 +206,18 @@ Table_Classif_Perform <- function(subtype_data, DeCAF_data,  training){
     pred_p = DeCAF_data$DeCAF_prob[DeCAF_data$dataSet == testing0[i]]
     label = subtype_data$SCISSORS_CAF[subtype_data$dataSet == testing0[i]]
     N[i] = length(label)
-    permCAF[i] = sum(label == "permCAF")
+    proCAF[i] = sum(label == "proCAF")
     Accuracy[i] = round(mean(pred == label),3)
-    Sensitivity[i] = round(sensitivity(as.factor(pred), as.factor(label), positive = "permCAF"),3)
+    Sensitivity[i] = round(sensitivity(as.factor(pred), as.factor(label), positive = "proCAF"),3)
     Specificity[i] = round(specificity(as.factor(pred), as.factor(label), negative = "restCAF"),3)
-    roc = roc(response = label, predictor = pred_p, levels = c("restCAF", "permCAF"), quiet = T)
+    roc = roc(response = label, predictor = pred_p, levels = c("restCAF", "proCAF"), quiet = T)
     AUC[i] = round(roc$auc[1],3)
     
     
   }
   
   ## Combien Results into one df
-  pmat = data.frame(N, permCAF, Accuracy, Sensitivity, Specificity, AUC)
+  pmat = data.frame(N, proCAF, Accuracy, Sensitivity, Specificity, AUC)
   
   ## Clean up Study Name
   testing0 = gsub("_PrimaryPDAC","",testing0)
@@ -293,12 +293,6 @@ write.csv(table, "../../results/tables/DeCAF_Metrics_ByStudy.csv")
 kable(table, "latex", booktabs = T) %>%
   kable_styling(latex_options = c("striped","scale_down"),full_width = F)  %>% 
   save_kable(file = "../../results/tables/DeCAF_Metrics_ByStudy.csv")
-
-
-
-
-
-
 
 
 

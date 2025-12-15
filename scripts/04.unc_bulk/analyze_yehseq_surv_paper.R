@@ -36,7 +36,7 @@ survDat$event[survDat$event == 2 |
                  survDat$event ==3] <- 1
 survDat$event <- as.numeric(survDat$event)
 survDat$time <- as.numeric(survDat$time)
-survDat$DeCAF <- factor(survDat$DeCAF , levels = c("permCAF","restCAF"))
+survDat$DeCAF <- factor(survDat$DeCAF , levels = c("proCAF","restCAF"))
 survDat$PurIST <- factor(survDat$PurIST, levels = c("Basal-like","Classical"))
 survDat0 <- survDat
 write.xlsx(survDat0, "../../results/tables/UNC-bulk_clinical_and_molecular_data.xlsx")
@@ -66,10 +66,10 @@ p <- ggsurvplot(font.legend = 16,
                 xlim = c(0,144),
                 km_fit, conf.int = F, pval = T,
                           legend.title="",break.time.by = 12,
-                          legend.labs=c("permCAF","restCAF"),
+                          legend.labs=c("proCAF","restCAF"),
                           palette = c("violetred1","turquoise4"),
                           xlab = "Time (months)", risk.table = T,
-                          title = paste("YehSeq\nperm vs rest HR=",hr,
+                          title = paste("YehSeq\npro vs rest HR=",hr,
                                         " BIC=",bic,sep=""))
 print(p)
 
@@ -95,10 +95,10 @@ p <- ggsurvplot(font.legend = 16,
                 xlim = c(0,144),
                 km_fit, conf.int = F, pval = T,
                           legend.title="",break.time.by = 12,
-                          legend.labs=c("permCAF","restCAF"),
+                          legend.labs=c("proCAF","restCAF"),
                           palette = c("violetred1","turquoise4"),
                           xlab = "Time (months)", risk.table = T,
-                          title = paste("YehSeq w/o neo\nperm vs rest HR=",hr,
+                          title = paste("YehSeq w/o neo\npro vs rest HR=",hr,
                                         " BIC=",bic,sep=""))
 print(p)
 
@@ -124,10 +124,10 @@ p <- ggsurvplot(font.legend = 16,
                 xlim = c(0,144),
                 km_fit, conf.int = F, pval = T,
                           legend.title="",break.time.by = 12,
-                          legend.labs=c("permCAF","restCAF"),
+                          legend.labs=c("proCAF","restCAF"),
                           palette = c("violetred1","turquoise4"),
                           xlab = "Time (months)", risk.table = T,
-                          title = paste("YehSeq FOLFIRINOX\nperm vs rest HR=",hr,
+                          title = paste("YehSeq FOLFIRINOX\npro vs rest HR=",hr,
                                         " BIC=",bic,sep=""))
 print(p)
 
@@ -135,7 +135,7 @@ print(p)
 # PurIST * DeCAF
 survDat <- survDat0
 survDat$cmb <- factor(paste(survDat$DeCAF, survDat$PurIST,  sep = "*"),
-                    levels = c("permCAF*Basal-like","permCAF*Classical","restCAF*Basal-like","restCAF*Classical"))
+                    levels = c("proCAF*Basal-like","proCAF*Classical","restCAF*Basal-like","restCAF*Classical"))
 km <- with(survDat, Surv(time,event))
 p = coxph(km ~ cmb, data = survDat)
 bic = round(BIC(p),3)
@@ -170,7 +170,7 @@ fisher.test(table(survDat[,c("PurIST","DeCAF")]))
 
 # multi-variate
 survDat$PurIST <- factor(survDat$PurIST, levels = c("Classical","Basal-like"))
-survDat$DeCAF <- factor(survDat$DeCAF, levels = c("restCAF","permCAF"))
+survDat$DeCAF <- factor(survDat$DeCAF, levels = c("restCAF","proCAF"))
 fit <- coxph(formula = Surv(time, event) ~ DeCAF+PurIST , data = survDat)
 p <- ggforest(fit, 
               main = "Hazard ratio",
@@ -188,7 +188,7 @@ p <- survDat %>%
 # PurIST * DeCAF (no neo) -------------------------------------------
 survDat <- survDat0[which(survDat0$neoadj.tx %in% c("No","no")), ]
 survDat$cmb <- factor(paste(survDat$DeCAF, survDat$PurIST,  sep = "*"),
-                    levels = c("permCAF*Basal-like","permCAF*Classical","restCAF*Basal-like","restCAF*Classical"))
+                    levels = c("proCAF*Basal-like","proCAF*Classical","restCAF*Basal-like","restCAF*Classical"))
 km <- with(survDat, Surv(time,event))
 p = coxph(km ~ cmb, data = survDat)
 bic = round(BIC(p),3)
@@ -223,7 +223,7 @@ fisher.test(table(survDat[,c("PurIST","DeCAF")]))
 
 # multi-variate
 survDat$PurIST <- factor(survDat$PurIST, levels = c("Classical","Basal-like"))
-survDat$DeCAF <- factor(survDat$DeCAF, levels = c("restCAF","permCAF"))
+survDat$DeCAF <- factor(survDat$DeCAF, levels = c("restCAF","proCAF"))
 fit <- coxph(formula = Surv(time, event) ~ DeCAF+PurIST , data = survDat)
 p <- ggforest(fit, 
               main = "YehSeq w/o neo",
@@ -234,7 +234,7 @@ print(p)
 # PurIST * DeCAF (FFX) ------------------------------------------------------
 survDat <- survDat0[which(survDat0$neoadj.tx.clean %in% c("FOLFIRINOX")), ]
 survDat$cmb <- factor(paste(survDat$DeCAF, survDat$PurIST,  sep = "*"),
-                    levels = c("permCAF*Basal-like","permCAF*Classical","restCAF*Basal-like","restCAF*Classical"))
+                    levels = c("proCAF*Basal-like","proCAF*Classical","restCAF*Basal-like","restCAF*Classical"))
 km <- with(survDat, Surv(time,event))
 p = coxph(km ~ cmb, data = survDat)
 bic = round(BIC(p),3)
@@ -269,7 +269,7 @@ fisher.test(table(survDat[,c("PurIST","DeCAF")]))
 
 # multi-variate
 survDat$PurIST <- factor(survDat$PurIST, levels = c("Classical","Basal-like"))
-survDat$DeCAF <- factor(survDat$DeCAF, levels = c("restCAF","permCAF"))
+survDat$DeCAF <- factor(survDat$DeCAF, levels = c("restCAF","proCAF"))
 fit <- coxph(formula = Surv(time, event) ~ DeCAF+PurIST , data = survDat)
 p <- ggforest(fit, 
               main = "YehSeq FOLFIRINOX",

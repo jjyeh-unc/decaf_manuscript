@@ -52,16 +52,16 @@ clinicalAll$PurISS_graded <- NA
 
 # initial pvalue dataframe
 survPvalue <- matrix(ncol = 9)
-colnames(survPvalue) <- c("CancerType","N","N_events","permCAF","permCAF median","restCAF","restCAF median","HR","Pvalue")
+colnames(survPvalue) <- c("CancerType","N","N_events","proCAF","proCAF median","restCAF","restCAF median","HR","Pvalue")
 
 survPvalue.DFI <- matrix(ncol = 9)
-colnames(survPvalue.DFI) <- c("CancerType","N","N_events","permCAF","permCAF median","restCAF","restCAF median","HR","Pvalue")
+colnames(survPvalue.DFI) <- c("CancerType","N","N_events","proCAF","proCAF median","restCAF","restCAF median","HR","Pvalue")
 
 survPvalue.DSS <- matrix(ncol = 9)
-colnames(survPvalue.DSS) <- c("CancerType","N","N_events","permCAF","permCAF median","restCAF","restCAF median","HR","Pvalue")
+colnames(survPvalue.DSS) <- c("CancerType","N","N_events","proCAF","proCAF median","restCAF","restCAF median","HR","Pvalue")
 
 survPvalue.PFI <- matrix(ncol = 9)
-colnames(survPvalue.PFI) <- c("CancerType","N","N_events","permCAF","permCAF median","restCAF","restCAF median","HR","Pvalue")
+colnames(survPvalue.PFI) <- c("CancerType","N","N_events","proCAF","proCAF median","restCAF","restCAF median","HR","Pvalue")
 
 # plot
 #par(mfrow=c(2,1))
@@ -99,22 +99,22 @@ for (dataName in dataList) {
   km <- with(survDat, Surv(OS.time,OS))
   # get stats
   p = coxph(km ~ PurISS, data = survDat)
-  permN <- length(which(survDat$PurISS %in% "myCAF" & !is.na(survDat$OS)))
+  proN <- length(which(survDat$PurISS %in% "myCAF" & !is.na(survDat$OS)))
   restN <- length(which(survDat$PurISS %in% "iCAF"  & !is.na(survDat$OS)))
   bic = round(BIC(p),3)
   hr <- paste0(round(1/summary(p)$coefficients[2],3), "(",round(1/summary(p)$conf.int[4],3), ",",round(1/summary(p)$conf.int[3],3), ")")
   pval <- round(summary(p)$logtest[3],3)
 
   km_fit <- survfit(km ~ PurISS, data = survDat, type = "kaplan-meier")
-  permMed <- paste0(round(surv_median(km_fit)[1,2],3),"(",round(surv_median(km_fit)[1,3],3),",",round(surv_median(km_fit)[1,4],3),")")
+  proMed <- paste0(round(surv_median(km_fit)[1,2],3),"(",round(surv_median(km_fit)[1,3],3),",",round(surv_median(km_fit)[1,4],3),")")
   restMed <- paste0(round(surv_median(km_fit)[2,2],3),"(",round(surv_median(km_fit)[2,3],3),",",round(surv_median(km_fit)[2,4],3),")")
-  survPvalue <- rbind(survPvalue, c(cancerType, p$n, p$nevent,permN, permMed,restN,restMed,hr,pval))
+  survPvalue <- rbind(survPvalue, c(cancerType, p$n, p$nevent,proN, proMed,restN,restMed,hr,pval))
   kmplot <- ggsurvplot(km_fit, 
            conf.int = F, 
            pval = T,
            legend.title="",
            break.time.by = break.time,
-           legend.labs=c("permCAF","restCAF"),
+           legend.labs=c("proCAF","restCAF"),
            palette = c("violetred1","turquoise4"),
            xlab = "Time (months)", 
            #ylab = "Proportion",
@@ -143,25 +143,25 @@ clinicalAll$RNAseqID[idxTmp] <- as.character(survDat$sampleID[match(clinicalAll$
 km <- with(survDat, Surv(DFI.time,DFI))
 # get stats
 if(cancerType == "TCGA_LAML" | cancerType == "TCGA_GBM" | cancerType == "TCGA_SKCM"| cancerType == "TCGA_THYM"| cancerType == "TCGA_UVM") {
-  survPvalue.DFI <- rbind(survPvalue.DFI, c(cancerType, nrow(survDat), NA,permN, NA,restN,NA,NA, NA))
+  survPvalue.DFI <- rbind(survPvalue.DFI, c(cancerType, nrow(survDat), NA,proN, NA,restN,NA,NA, NA))
 } else {
 p = coxph(km ~ PurISS, data = survDat)
-permN <- length(which(survDat$PurISS %in% "myCAF" & !is.na(survDat$DFI)))
+proN <- length(which(survDat$PurISS %in% "myCAF" & !is.na(survDat$DFI)))
 restN <- length(which(survDat$PurISS %in% "iCAF"  & !is.na(survDat$DFI)))
 bic = round(BIC(p),3)
 hr <- paste0(round(1/summary(p)$coefficients[2],3), "(",round(1/summary(p)$conf.int[4],3), ",",round(1/summary(p)$conf.int[3],3), ")")
 pval <- round(summary(p)$logtest[3],3)
 km_fit <- survfit(km ~ PurISS, data = survDat, type = "kaplan-meier")
-permMed <- paste0(round(surv_median(km_fit)[1,2],3),"(",round(surv_median(km_fit)[1,3],3),",",round(surv_median(km_fit)[1,4],3),")")
+proMed <- paste0(round(surv_median(km_fit)[1,2],3),"(",round(surv_median(km_fit)[1,3],3),",",round(surv_median(km_fit)[1,4],3),")")
 restMed <- paste0(round(surv_median(km_fit)[2,2],3),"(",round(surv_median(km_fit)[2,3],3),",",round(surv_median(km_fit)[2,4],3),")")
-survPvalue.DFI <- rbind(survPvalue.DFI, c(cancerType, p$n, p$nevent,permN, permMed,restN,restMed,hr,pval))
+survPvalue.DFI <- rbind(survPvalue.DFI, c(cancerType, p$n, p$nevent,proN, proMed,restN,restMed,hr,pval))
 kmplot <- ggsurvplot(km_fit, 
                      conf.int = F, 
                      pval = T,
                      #pval.coord = c(0.5*max(survDat$OS.time[which(!is.na(survDat$OS.time))]), 0.9),
                      legend.title="",
                      break.time.by = break.time,
-                     legend.labs=c("permCAF","restCAF"),
+                     legend.labs=c("proCAF","restCAF"),
                      palette = c("violetred1","turquoise4"),
                      xlab = "Time (months)", 
                      #ylab = "Proportion",
@@ -185,25 +185,25 @@ print(kmplot)
 km <- with(survDat, Surv(DSS.time,DSS))
 # get stats
 if(cancerType == "TCGA_LAML") {
-  survPvalue.DSS <- rbind(survPvalue.DSS, c(cancerType, nrow(survDat), NA,permN, NA,restN,NA,NA, NA))
+  survPvalue.DSS <- rbind(survPvalue.DSS, c(cancerType, nrow(survDat), NA,proN, NA,restN,NA,NA, NA))
 } else {
   p = coxph(km ~ PurISS, data = survDat)
-  permN <- length(which(survDat$PurISS %in% "myCAF" & !is.na(survDat$DSS)))
+  proN <- length(which(survDat$PurISS %in% "myCAF" & !is.na(survDat$DSS)))
   restN <- length(which(survDat$PurISS %in% "iCAF"  & !is.na(survDat$DSS)))
   bic = round(BIC(p),3)
   hr <- paste0(round(1/summary(p)$coefficients[2],3), "(",round(1/summary(p)$conf.int[4],3), ",",round(1/summary(p)$conf.int[3],3), ")")
   pval <- round(summary(p)$logtest[3],3)
   km_fit <- survfit(km ~ PurISS, data = survDat, type = "kaplan-meier")
-  permMed <- paste0(round(surv_median(km_fit)[1,2],3),"(",round(surv_median(km_fit)[1,3],3),",",round(surv_median(km_fit)[1,4],3),")")
+  proMed <- paste0(round(surv_median(km_fit)[1,2],3),"(",round(surv_median(km_fit)[1,3],3),",",round(surv_median(km_fit)[1,4],3),")")
   restMed <- paste0(round(surv_median(km_fit)[2,2],3),"(",round(surv_median(km_fit)[2,3],3),",",round(surv_median(km_fit)[2,4],3),")")
-  survPvalue.DSS <- rbind(survPvalue.DSS, c(cancerType, p$n, p$nevent,permN, permMed,restN,restMed,hr,pval))
+  survPvalue.DSS <- rbind(survPvalue.DSS, c(cancerType, p$n, p$nevent,proN, proMed,restN,restMed,hr,pval))
   kmplot <- ggsurvplot(km_fit, 
                        conf.int = F, 
                        pval = T,
                        #pval.coord = c(0.5*max(survDat$OS.time[which(!is.na(survDat$OS.time))]), 0.9),
                        legend.title="",
                        break.time.by = break.time,
-                       legend.labs=c("permCAF","restCAF"),
+                       legend.labs=c("proCAF","restCAF"),
                        palette = c("violetred1","turquoise4"),
                        xlab = "Time (months)", 
                        #ylab = "Proportion",
@@ -227,25 +227,25 @@ if(cancerType == "TCGA_LAML") {
 km <- with(survDat, Surv(PFI.time,PFI))
 # get stats
 if(cancerType == "TCGA_LAML") {
-  survPvalue.PFI <- rbind(survPvalue.PFI, c(cancerType, nrow(survDat), NA,permN, NA,restN,NA,NA, NA))
+  survPvalue.PFI <- rbind(survPvalue.PFI, c(cancerType, nrow(survDat), NA,proN, NA,restN,NA,NA, NA))
 } else {
   p = coxph(km ~ PurISS, data = survDat)
-  permN <- length(which(survDat$PurISS %in% "myCAF" & !is.na(survDat$PFI)))
+  proN <- length(which(survDat$PurISS %in% "myCAF" & !is.na(survDat$PFI)))
   restN <- length(which(survDat$PurISS %in% "iCAF"  & !is.na(survDat$PFI)))
   bic = round(BIC(p),3)
   hr <- paste0(round(1/summary(p)$coefficients[2],3), "(",round(1/summary(p)$conf.int[4],3), ",",round(1/summary(p)$conf.int[3],3), ")")
   pval <- round(summary(p)$logtest[3],3)
   km_fit <- survfit(km ~ PurISS, data = survDat, type = "kaplan-meier")
-  permMed <- paste0(round(surv_median(km_fit)[1,2],3),"(",round(surv_median(km_fit)[1,3],3),",",round(surv_median(km_fit)[1,4],3),")")
+  proMed <- paste0(round(surv_median(km_fit)[1,2],3),"(",round(surv_median(km_fit)[1,3],3),",",round(surv_median(km_fit)[1,4],3),")")
   restMed <- paste0(round(surv_median(km_fit)[2,2],3),"(",round(surv_median(km_fit)[2,3],3),",",round(surv_median(km_fit)[2,4],3),")")
-  survPvalue.PFI <- rbind(survPvalue.PFI, c(cancerType, p$n, p$nevent,permN, permMed,restN,restMed,hr,pval))
+  survPvalue.PFI <- rbind(survPvalue.PFI, c(cancerType, p$n, p$nevent,proN, proMed,restN,restMed,hr,pval))
   kmplot <- ggsurvplot(km_fit, 
                        conf.int = F, 
                        pval = T,
                        #pval.coord = c(0.5*max(survDat$OS.time[which(!is.na(survDat$OS.time))]), 0.9),
                        legend.title="",
                        break.time.by = break.time,
-                       legend.labs=c("permCAF","restCAF"),
+                       legend.labs=c("proCAF","restCAF"),
                        palette = c("violetred1","turquoise4"),
                        xlab = "Time (months)", 
                        #ylab = "Proportion",

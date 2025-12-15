@@ -82,7 +82,7 @@ MarkerGene_list_tmp <- list()
 ###PSC
 gene_list <- readRDS("/work/users/c/h/changfei/00_SCISSORS/data/VAM_Markers_version5th/All/combined/VAM_Scissors_Allmarkers_All_combined.Rds")
 names(gene_list)
-MarkerGene_list_tmp[["SCISSORS-permCAF"]] <- gene_list$`SCISSORS-CAF-myCAF`
+MarkerGene_list_tmp[["SCISSORS-proCAF"]] <- gene_list$`SCISSORS-CAF-myCAF`
 MarkerGene_list_tmp[["SCISSORS-restCAF"]] <- gene_list$`SCISSORS-CAF-iCAF`
 MarkerGene_list_tmp[["SCISSORS-apCAF"]] <- gene_list$`SCISSORS-CAF-apCAF`
 MarkerGene_list_tmp[["SCISSORS-Perivascular"]] <- gene_list$`SCISSORS-Stroma-Perivascular`
@@ -152,8 +152,8 @@ percentage_df <- percentage_df %>%
   arrange(schema_groups)
 
 ### change row orders as Laura suggested
-new_row_order <- c("DeCAF-permCAF","DeCAF-restCAF ",
-                   "SCISSORS-permCAF", "SCISSORS-restCAF", "SCISSORS-apCAF", "SCISSORS-Perivascular",
+new_row_order <- c("DeCAF-proCAF","DeCAF-restCAF ",
+                   "SCISSORS-proCAF", "SCISSORS-restCAF", "SCISSORS-apCAF", "SCISSORS-Perivascular",
                    "Elyada-CAF-myCAF", "Elyada-CAF-iCAF", "Elyada-CAF-mouse-apCAF", "Elyada-Perivascular",
                    "Ogawa-F-stroma","Ogawa-A-stroma","Ogawa-C-stroma",
                    "Chen-cCAF","Chen-csCAF","Chen-PSC",

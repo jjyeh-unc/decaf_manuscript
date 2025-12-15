@@ -1542,10 +1542,10 @@ hr <- round(1/summary(p)$coefficients[2],3)
 km_fit <- survfit(km ~ DeCAF, data = survDat, type = "kaplan-meier")
 p <- ggsurvplot(km_fit, conf.int = F, pval = T,
                           legend.title="",break.time.by = 12,
-                          legend.labs=c("permCAF","restCAF"),
+                          legend.labs=c("proCAF","restCAF"),
                           palette = c("violetred1","turquoise4"),
                           xlab = "Time (months)", risk.table = T,
-                          title = paste("YehSeq\nperm vs rest HR=",hr,
+                          title = paste("YehSeq\npro vs rest HR=",hr,
                                         "BIC=",bic,sep=""))
 print(p)
 
@@ -1571,7 +1571,7 @@ p <- ggsurvplot(km_fit, conf.int = F, pval = T,
                           legend.labs=c("myCAF","iCAF"),
                           palette = c("violetred1","turquoise4"),
                           xlab = "Time (months)", risk.table = T,
-                          title = paste("YehSeq\nperm vs rest HR=",hr,
+                          title = paste("YehSeq\npro vs rest HR=",hr,
                                         "BIC=",bic,sep=""))
 print(p)
 
@@ -1594,7 +1594,7 @@ p <- ggsurvplot(km_fit, conf.int = F, pval = T,
                           legend.labs=c("Basal-like","Classical"),
                           palette = c("orange","blue"),
                           xlab = "Time (months)", risk.table = T,
-                          title = paste("YehSeq\nperm vs rest HR=",hr,
+                          title = paste("YehSeq\npro vs rest HR=",hr,
                                         "BIC=",bic,sep=""))
 print(p)
 

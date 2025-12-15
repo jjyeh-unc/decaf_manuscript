@@ -73,7 +73,7 @@ plot_surv <- function(survDat, km, cancerType) {
                        risk.table = T,
                        legend.title="",
                        break.time.by = 12,
-                       legend.labs=c("permCAF","restCAT"),
+                       legend.labs=c("proCAF","restCAT"),
                        palette = c("violetred1","turquoise4"),
                        xlab = "Time (months)", 
                        title = paste(gsub("TCGA_","",survPvalue[1]),
@@ -113,23 +113,23 @@ survDat$PurISS <- factor(survDat$PurISS, levels = c("myCAF","iCAF"))
 
 # relabel
 survDat$DeCAF <- as.character(survDat$PurISS)
-survDat$DeCAF[which(survDat$DeCAF %in% "myCAF")] <- "permCAF"
+survDat$DeCAF[which(survDat$DeCAF %in% "myCAF")] <- "proCAF"
 survDat$DeCAF[which(survDat$DeCAF %in% "iCAF")] <- "restCAF"
-survDat$DeCAF <- factor(survDat$DeCAF, levels = c("permCAF","restCAF"))
+survDat$DeCAF <- factor(survDat$DeCAF, levels = c("proCAF","restCAF"))
 
 # km
 km <- with(survDat, Surv(time,event))
 
 # get stats
 p = coxph(km ~ PurISS, data = survDat)
-permN <- length(which(survDat$DeCAF %in% "permCAF"))
+proN <- length(which(survDat$DeCAF %in% "proCAF"))
 restN <- length(which(survDat$DeCAF %in% "restCAF"))
 bic = round(BIC(p),3)
 hr <- round(1/summary(p)$coefficients[2],3)
 ci_lower <- round(1/summary(p)$conf.int[4],3)
 ci_upper <- round(1/summary(p)$conf.int[3],3)
 pval <- round(summary(p)$sctest[3],3)
-survPvalue[which(survPvalue$CancerType %in% c("TCGA_PAAD")),2:7] <- c(p$n, p$nevent,permN, restN, hr, ci_lower, ci_upper, pval)
+survPvalue[which(survPvalue$CancerType %in% c("TCGA_PAAD")),2:7] <- c(p$n, p$nevent,proN, restN, hr, ci_lower, ci_upper, pval)
 
 # correct
 survPvalue$Pvalue.bonferroni <- p.adjust(survPvalue$Pvalue, method = "bonferroni")
@@ -174,11 +174,11 @@ for (cancerType in c("TCGA_KIRC","TCGA_MESO","TCGA_THCA")) {
 
   #survDat$Dataset <- cancerType
   survDat$DeCAF <- survDat$PurISS.final
-  survDat$DeCAF[which(survDat$DeCAF %in% "myCAF")] <- "permCAF"
+  survDat$DeCAF[which(survDat$DeCAF %in% "myCAF")] <- "proCAF"
   survDat$DeCAF[which(survDat$DeCAF %in% "iCAF")] <- "restCAF"
-  survDat$DeCAF <- factor(survDat$DeCAF, levels = c("permCAF","restCAF"))
+  survDat$DeCAF <- factor(survDat$DeCAF, levels = c("proCAF","restCAF"))
   survDat$DeCAF_graded <- survDat$PurISS_graded.final
-  survDat$DeCAF_graded <- gsub("myCAF","permCAF",survDat$DeCAF_graded)
+  survDat$DeCAF_graded <- gsub("myCAF","proCAF",survDat$DeCAF_graded)
   survDat$DeCAF_graded <- gsub("iCAF","restCAF",survDat$DeCAF_graded)
   survDat$DeCAF.prob <- survDat$PurISS.prob.final
   
@@ -228,9 +228,9 @@ survPvaluePlot$CI_lower.log <- log2(as.numeric(survPvaluePlot$CI_lower))
 survPvaluePlot$CI_upper.log <- log2(as.numeric(survPvaluePlot$CI_upper))
 
 # cal %
-p <- 100*as.numeric(survPvaluePlot$permCAF)/(as.numeric(survPvaluePlot$permCAF)+as.numeric(survPvaluePlot$restCAF))
-r <- 100*as.numeric(survPvaluePlot$restCAF)/(as.numeric(survPvaluePlot$permCAF)+as.numeric(survPvaluePlot$restCAF))
-survPvaluePlot$permCAF <- paste0(survPvaluePlot$permCAF," (",round(p,0),"%)")
+p <- 100*as.numeric(survPvaluePlot$proCAF)/(as.numeric(survPvaluePlot$proCAF)+as.numeric(survPvaluePlot$restCAF))
+r <- 100*as.numeric(survPvaluePlot$restCAF)/(as.numeric(survPvaluePlot$proCAF)+as.numeric(survPvaluePlot$restCAF))
+survPvaluePlot$proCAF <- paste0(survPvaluePlot$proCAF," (",round(p,0),"%)")
 survPvaluePlot$restCAF <- paste0(survPvaluePlot$restCAF," (",round(r,0),"%)")
 
 # derive estimate label
@@ -270,7 +270,7 @@ survPvaluePlot <- survPvaluePlot |>
     data.frame(
       CancerType = "Cancer",
       Estimate = "HR (95% CI)",
-      permCAF = "permCAF",
+      proCAF = "proCAF",
       restCAF = "restCAF",
       CI_lower = "",
       CI_upper = "",
@@ -291,8 +291,8 @@ p_mid <-
   geom_vline(xintercept = 0,linetype="dashed") +
   labs(x="Log Hazard Ratio", y="") +
   coord_cartesian(ylim=c(1,34), xlim=c(-4, 6)) +
-  #annotate("text", x = -2, y = 35, label = "permCAF better") +
-  #annotate("text", x = 2, y = 35, label = "permCAF worse") + 
+  #annotate("text", x = -2, y = 35, label = "proCAF better") +
+  #annotate("text", x = 2, y = 35, label = "proCAF worse") + 
   theme(axis.line.y = element_blank(),
         axis.ticks.y= element_blank(),
         axis.text.y= element_blank(),
@@ -303,7 +303,7 @@ p_left <-
   ggplot(aes(y = reorder(CancerType, HR.log))) +
   geom_text(aes(x = 0, label = CancerType), hjust = 0, fontface = "bold") +
   #geom_text(aes(x = 1, label = Estimate), hjust = 0, fontface = ifelse(survPvaluePlot$Estimate == "HR (95% CI)", "bold", "plain")) +
-  geom_text(aes(x = 0.8, label = permCAF), hjust = 0, fontface = ifelse(survPvaluePlot$permCAF == "permCAF", "bold", "plain")) +
+  geom_text(aes(x = 0.8, label = proCAF), hjust = 0, fontface = ifelse(survPvaluePlot$proCAF == "proCAF", "bold", "plain")) +
   geom_text(aes(x = 1.8, label = restCAF), hjust = 0, fontface = ifelse(survPvaluePlot$restCAF == "restCAF", "bold", "plain")) +
   theme_void() +
   coord_cartesian(ylim=c(1,34), xlim = c(0, 4))

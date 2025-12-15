@@ -1,11 +1,11 @@
-datTmp <- data.frame(DeCAF = c("permCAF","permCAF","restCAF","restCAF"),
+datTmp <- data.frame(DeCAF = c("proCAF","proCAF","restCAF","restCAF"),
                      PurIST = c("Basal-like","Classical","Basal-like","Classical"),
                      Freq = c(167,529,92,536),
                      stringsAsFactors = FALSE)
 
 bar_plots <- ggplot(datTmp, aes(x=factor(datTmp$PurIST, levels=c("Basal-like", "Classical")), y=Freq, fill=DeCAF)) +
   geom_bar(position="fill", stat = "identity")+
-  scale_fill_manual(values = alpha(c("permCAF" = "#FE46A5", "restCAF" = "#008080"))) +
+  scale_fill_manual(values = alpha(c("proCAF" = "#FE46A5", "restCAF" = "#008080"))) +
   geom_text(aes(label = paste0(Freq)), position = position_fill(vjust = 0.5),
             col="white", size=6)+
   #geom_text(aes(x = 1.5, y = 1.05,

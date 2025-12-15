@@ -30,9 +30,9 @@ setwd("/work/users/c/h/changfei/CAPER_Paper/replot_others/data")
 plots <- list()
 point_size <- 3
 boxplot_lwd <- 0.5
-color_mapping_boxplot <- c("CR/PR" = "darkgreen", "SD/PD" = "darkred", "permCAF" = "#FE46A5", "restCAF" = "#008080")
+color_mapping_boxplot <- c("CR/PR" = "darkgreen", "SD/PD" = "darkred", "proCAF" = "#FE46A5", "restCAF" = "#008080")
 # color_mapping_boxplot2 <- c("CR/PR" = "darkgreen", "SD/PD" = "darkred")
-# color_mapping_boxplot <- c("CR/PR" = "green", "SD/PD" = "red", "permCAF" = "#FE46A5", "restCAF" = "#008080")
+# color_mapping_boxplot <- c("CR/PR" = "green", "SD/PD" = "red", "proCAF" = "#FE46A5", "restCAF" = "#008080")
 
 
 # IMmotion------------------------
@@ -54,8 +54,8 @@ plots[[1]] <- ggplot(rcc.atezo, aes(x=BestResponse.2, y=DeCAF_prob)) +
   # stat_compare_means(size = 5)+
   scale_color_manual(
     values = color_mapping_boxplot,
-    labels = c("CR/PR" = "Box:CR/PR", "SD/PD" = "Box:SD/PD", "permCAF" = "Point:permCAF", "restCAF" = "Point:restCAF"),
-    breaks = c("CR/PR", "SD/PD", "permCAF", "restCAF")
+    labels = c("CR/PR" = "Box:CR/PR", "SD/PD" = "Box:SD/PD", "proCAF" = "Point:proCAF", "restCAF" = "Point:restCAF"),
+    breaks = c("CR/PR", "SD/PD", "proCAF", "restCAF")
     
   ) +
   labs(x=" ", y="DeCAF Probability",title = "IMmotion")+
@@ -129,9 +129,9 @@ plots[[3]] <- ggplot(IMVIG.na, aes(x=binaryResponse, y=DeCAF_prob)) +
   # stat_compare_means(size = 5)+
   scale_color_manual(
     values = color_mapping_boxplot,
-    labels = c("CR/PR" = "Box:CR/PR", "SD/PD" = "Box:SD/PD", "permCAF" = "Point:permCAF", "restCAF" = "Point:restCAF"),
+    labels = c("CR/PR" = "Box:CR/PR", "SD/PD" = "Box:SD/PD", "proCAF" = "Point:proCAF", "restCAF" = "Point:restCAF"),
     # breaks = c("green", "red", "#FE46A5", "#008080")
-    breaks = c("CR/PR", "SD/PD", "permCAF", "restCAF")
+    breaks = c("CR/PR", "SD/PD", "proCAF", "restCAF")
     
   ) +
   labs(x=" ", y="DeCAF Probability",title = "IMvigor")+

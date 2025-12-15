@@ -41,7 +41,7 @@ survDat$event[survDat$event == 2 |
                  survDat$event ==3] <- 1
 survDat$event <- as.numeric(survDat$event)
 survDat$time <- as.numeric(survDat$time)
-survDat$DeCAF <- factor(survDat$DeCAF, levels = c("restCAF","permCAF"))
+survDat$DeCAF <- factor(survDat$DeCAF, levels = c("restCAF","proCAF"))
 survDat$PurIST <- factor(survDat$PurIST, levels = c("Classical","Basal-like"))
 survDat$Differentiation <- factor(survDat$Differentiation, levels = c("Well","Moderate","Poor"))
 survDat$Stage <- factor(survDat$Stage, levels = c("I","II","III"))

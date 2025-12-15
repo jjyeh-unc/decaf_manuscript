@@ -193,22 +193,22 @@ saveRDS(recluster_Yehseq_fibro, file = "Yehseq_fibro_7clusters.Rds")
 # recluster_Yehseq_fibro <- readRDS("Yehseq_fibro_7clusters.Rds")
 
 recluster_Yehseq_fibro@meta.data %<>% mutate(
-  label = case_when(seurat_clusters %in% c(1,5) ~ "permCAF", 
+  label = case_when(seurat_clusters %in% c(1,5) ~ "proCAF", 
                     seurat_clusters %in% c(0,2,6) ~ "restCAF", 
                     seurat_clusters %in% c(4) ~ "apCAF", 
                     seurat_clusters %in% c(3) ~ "Pericyte"))
 recluster_Yehseq_fibro@meta.data %<>% mutate(
-  label_seperate = case_when(seurat_clusters %in% c(1) ~ "permCAF-1", 
-                             seurat_clusters %in% c(5) ~ "permCAF-2", 
+  label_seperate = case_when(seurat_clusters %in% c(1) ~ "proCAF-1", 
+                             seurat_clusters %in% c(5) ~ "proCAF-2", 
                              seurat_clusters %in% c(0) ~ "restCAF-1", 
                              seurat_clusters %in% c(2) ~ "restCAF-2", 
                              seurat_clusters %in% c(6) ~ "restCAF-3", 
                              seurat_clusters %in% c(4) ~ "apCAF", 
                              seurat_clusters %in% c(3) ~ "Pericyte"))
 
-recluster_Yehseq_fibro@meta.data$label <- factor(recluster_Yehseq_fibro@meta.data$label,levels = c("permCAF","restCAF","apCAF","Pericyte"))
+recluster_Yehseq_fibro@meta.data$label <- factor(recluster_Yehseq_fibro@meta.data$label,levels = c("proCAF","restCAF","apCAF","Pericyte"))
 recluster_Yehseq_fibro@meta.data$label_seperate <- factor(recluster_Yehseq_fibro@meta.data$label_seperate,
-                                                          levels = c("permCAF-1","permCAF-2","restCAF-1","restCAF-2","restCAF-3","apCAF","Pericyte"))
+                                                          levels = c("proCAF-1","proCAF-2","restCAF-1","restCAF-2","restCAF-3","apCAF","Pericyte"))
 saveRDS(recluster_Yehseq_fibro, file = "Yehseq_fibro_7clusters_labeled.Rds")
 
 saveRDS(recluster_Yehseq_fibro, file = "YUNC_sc_CAF.rds")

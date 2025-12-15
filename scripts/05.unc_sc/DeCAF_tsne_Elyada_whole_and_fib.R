@@ -90,14 +90,14 @@ sc <- readRDS("/work/users/c/h/changfei/01_CAPER_Paper/00_DeCAF_paper_summary/Fi
 ## change label for plot
 sc@meta.data %<>% mutate(
   label_paper_plot = case_when(
-    label %in% c("myCAF") ~ "permCAF", 
+    label %in% c("myCAF") ~ "proCAF", 
     label %in% c("iCAF") ~ "restCAF",  
     label %in% c("apCAF") ~ "apCAF",  
     label %in% c("Perivascular" ) ~ "Pericyte",  
     label %in% c("Endothelial") ~ "Endothelial"))
 ###### set color maping
 color_mapping <- c(
-  "permCAF"               = "#FE46A5",
+  "proCAF"               = "#FE46A5",
   "restCAF"               = "#008080",
   "apCAF"                 = "#9683EC",
   "Pericyte"              = "#E4D00A",

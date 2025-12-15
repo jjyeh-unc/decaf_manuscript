@@ -48,7 +48,7 @@ survDat$event[survDat$event == 2 |
                  survDat$event ==3] <- 1
 survDat$event <- as.numeric(survDat$event)
 survDat$time <- as.numeric(survDat$time)
-survDat$DeCAF <- factor(survDat$DeCAF , levels = c("permCAF","restCAF"))
+survDat$DeCAF <- factor(survDat$DeCAF , levels = c("proCAF","restCAF"))
 survDat$PurIST <- factor(survDat$PurIST, levels = c("Basal-like","Classical"))
 survDat$pathCall <- c("Myx","Mixed","Coll")[survDat$pathCall]
 survDat$pathCall <- factor(survDat$pathCall, levels = c("Myx","Mixed","Coll"))

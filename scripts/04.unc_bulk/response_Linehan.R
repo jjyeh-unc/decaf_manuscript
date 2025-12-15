@@ -111,19 +111,19 @@ corr <- cor.test(as.numeric(responseDat.all$Change),
 
 # changed to pearson in actual figures
 
-# permCAF response
-corr <- cor.test(as.numeric(responseDat.all$Change[responseDat.all$DeCAF.pre=="permCAF"]),
-                 as.numeric(responseDat.all$DeCAF_prob.pre[responseDat.all$DeCAF.pre=="permCAF"]),
+# proCAF response
+corr <- cor.test(as.numeric(responseDat.all$Change[responseDat.all$DeCAF.pre=="proCAF"]),
+                 as.numeric(responseDat.all$DeCAF_prob.pre[responseDat.all$DeCAF.pre=="proCAF"]),
                  method="pearson", use= "complete.obs")
-plot(as.numeric(responseDat.all$Change[responseDat.all$DeCAF.pre=="permCAF"]),
-     as.numeric(responseDat.all$DeCAF_prob.pre[responseDat.all$DeCAF.pre=="permCAF"]),
+plot(as.numeric(responseDat.all$Change[responseDat.all$DeCAF.pre=="proCAF"]),
+     as.numeric(responseDat.all$DeCAF_prob.pre[responseDat.all$DeCAF.pre=="proCAF"]),
      main = "",
-     xlab = "% tumor size change", ylab = "permCAF probability (pre)",
+     xlab = "% tumor size change", ylab = "proCAF probability (pre)",
      cex.lab = 1.2, cex.axis = 1.2,
      xlim = c(-50,30), ylim = c(0.5,1),
-     col=c("violetred1","turquoise4")[as.factor(responseDat.all$DeCAF.pre[responseDat.all$DeCAF.pre=="permCAF"])], 
-     #bg = c("violetred1","turquoise4")[as.factor(responseDat.all$DeCAF.post[responseDat.all$DeCAF.pre=="permCAF"])], 
-     pch=c(22,24,21)[as.factor(as.numeric(as.factor(responseDat.all$RECIST[responseDat.all$DeCAF.pre=="permCAF"])))], 
+     col=c("violetred1","turquoise4")[as.factor(responseDat.all$DeCAF.pre[responseDat.all$DeCAF.pre=="proCAF"])], 
+     #bg = c("violetred1","turquoise4")[as.factor(responseDat.all$DeCAF.post[responseDat.all$DeCAF.pre=="proCAF"])], 
+     pch=c(22,24,21)[as.factor(as.numeric(as.factor(responseDat.all$RECIST[responseDat.all$DeCAF.pre=="proCAF"])))], 
      cex = 1.5, lwd = 1)
 abline(v = 20, lwd=1, lty=2)
 abline(v = -30, lwd=1, lty=2)
@@ -165,12 +165,12 @@ text(10, -0.3, cex = 1.2,
 
 
 
-wilTest.p <- wilcox.test(responseDat.all$Neutrophils_pre[responseDat.all$DeCAF.pre=="permCAF"], 
-            responseDat.all$Neutrophils_post[responseDat.all$DeCAF.pre=="permCAF"], paired = T)
+wilTest.p <- wilcox.test(responseDat.all$Neutrophils_pre[responseDat.all$DeCAF.pre=="proCAF"], 
+            responseDat.all$Neutrophils_post[responseDat.all$DeCAF.pre=="proCAF"], paired = T)
 wilTest.r <- wilcox.test(responseDat.all$Neutrophils_pre[responseDat.all$DeCAF.pre=="restCAF"], 
             responseDat.all$Neutrophils_post[responseDat.all$DeCAF.pre=="restCAF"], paired = T)
-boxplot(responseDat.all$Neutrophils_pre[responseDat.all$DeCAF.pre=="permCAF"], 
-        responseDat.all$Neutrophils_post[responseDat.all$DeCAF.pre=="permCAF"],
+boxplot(responseDat.all$Neutrophils_pre[responseDat.all$DeCAF.pre=="proCAF"], 
+        responseDat.all$Neutrophils_post[responseDat.all$DeCAF.pre=="proCAF"],
         responseDat.all$Neutrophils_pre[responseDat.all$DeCAF.pre=="restCAF"],
         responseDat.all$Neutrophils_post[responseDat.all$DeCAF.pre=="restCAF"],
         at = c(1,2,4,5), names = c("Pre","Post","Pre","Post"), 
@@ -179,7 +179,7 @@ boxplot(responseDat.all$Neutrophils_pre[responseDat.all$DeCAF.pre=="permCAF"],
         col = "white", ylim =c(0,0.6),
         cex.lab = 1.2, cex.axis = 1.2)
 text(1.5, 0.49, cex = 1.2,
-     pos = 3, paste0("permCAF\np = ", round(wilTest.p$p.value,3)))
+     pos = 3, paste0("proCAF\np = ", round(wilTest.p$p.value,3)))
 text(4.5, 0.49, cex = 1.2,
      pos = 3, paste0("restCAF\np = ", round(wilTest.r$p.value,3)))
 
@@ -194,7 +194,7 @@ corr <- cor.test(as.numeric(responseDat.all$Change[responseDat.all$DeCAF.pre=="r
 plot(as.numeric(responseDat.all$Change[responseDat.all$DeCAF.pre=="restCAF"]),
      as.numeric(responseDat.all$DeCAF_prob.pre[responseDat.all$DeCAF.pre=="restCAF"]),
      main = "",
-     xlab = "% tumor size change", ylab = "permCAF probability (pre)",
+     xlab = "% tumor size change", ylab = "proCAF probability (pre)",
      cex.lab = 1.2, cex.axis = 1.2,
      xlim = c(-50,30), ylim = c(0,0.5),
      col=c("turquoise4")[as.factor(responseDat.all$DeCAF.pre[responseDat.all$DeCAF.pre=="restCAF"])], 
@@ -232,12 +232,12 @@ text(10, 0.15, cex = 1.2,
      pos = 3, paste("p = ",round(corr$p.value,3),sep=""))
 
 
-wilTest.p <- wilcox.test(responseDat.all$Macrophages.M2_pre[responseDat.all$DeCAF.pre=="permCAF"], 
-            responseDat.all$Macrophages.M2_post[responseDat.all$DeCAF.pre=="permCAF"], paired = T)
+wilTest.p <- wilcox.test(responseDat.all$Macrophages.M2_pre[responseDat.all$DeCAF.pre=="proCAF"], 
+            responseDat.all$Macrophages.M2_post[responseDat.all$DeCAF.pre=="proCAF"], paired = T)
 wilTest.r <-wilcox.test(responseDat.all$Macrophages.M2_pre[responseDat.all$DeCAF.pre=="restCAF"], 
             responseDat.all$Macrophages.M2_post[responseDat.all$DeCAF.pre=="restCAF"], paired = T)
-boxplot(responseDat.all$Macrophages.M2_pre[responseDat.all$DeCAF.pre=="permCAF"], 
-        responseDat.all$Macrophages.M2_post[responseDat.all$DeCAF.pre=="permCAF"],
+boxplot(responseDat.all$Macrophages.M2_pre[responseDat.all$DeCAF.pre=="proCAF"], 
+        responseDat.all$Macrophages.M2_post[responseDat.all$DeCAF.pre=="proCAF"],
         responseDat.all$Macrophages.M2_pre[responseDat.all$DeCAF.pre=="restCAF"],
         responseDat.all$Macrophages.M2_post[responseDat.all$DeCAF.pre=="restCAF"],
         at = c(1,2,4,5), names = c("Pre","Post","Pre","Post"), 
@@ -246,7 +246,7 @@ boxplot(responseDat.all$Macrophages.M2_pre[responseDat.all$DeCAF.pre=="permCAF"]
         col = "white", ylim =c(0,0.6),
         cex.lab = 1.2, cex.axis = 1.2)
 text(1.5, 0.49, cex = 1.2,
-     pos = 3, paste0("permCAF\np = ", round(wilTest.p$p.value,3)))
+     pos = 3, paste0("proCAF\np = ", round(wilTest.p$p.value,3)))
 text(4.5, 0.49, cex = 1.2,
      pos = 3, paste0("restCAF\np = ", round(wilTest.r$p.value,3)))
 
@@ -262,7 +262,7 @@ corr <- cor.test(as.numeric(responseDat.all$DeCAF_prob.post),
 plot(as.numeric(responseDat.all$DeCAF_prob.post),
      as.numeric(responseDat.all$DeCAF_prob.pre),
      main = "",
-     ylab = "permCAF probability (pre)", xlab = "permCAF probability (post)",
+     ylab = "proCAF probability (pre)", xlab = "proCAF probability (post)",
      cex.lab = 1.2, cex.axis = 1.2,
      xlim = c(0,1), ylim = c(0,1),
      #col=c("darkred","darkgreen","gold2")[as.numeric(as.factor(responseDat.all$RECIST))], 
@@ -281,9 +281,9 @@ text(0.2, 0.75, cex = 1.2,
 #plot.new()
 #legend(xy.coords(x=0,y=.98),
 #       legend=c("DeCAF by treatment(tx)",
-#                "permCAF(pre-tx) & permCAF(post-tx) ",
-#                "permCAF(pre-tx) & restCAF(post-tx) ",
-#                "restCAF(pre-tx) & permCAF(post-tx) ",
+#                "proCAF(pre-tx) & proCAF(post-tx) ",
+#                "proCAF(pre-tx) & restCAF(post-tx) ",
+#                "restCAF(pre-tx) & proCAF(post-tx) ",
 #                "restCAF(pre-tx) & restCAF(post-tx) ",
 #                "Best respone","PR","SD","PD"),
 #       fill = c("white","violetred1","turquoise4","violetred1","turquoise4", 

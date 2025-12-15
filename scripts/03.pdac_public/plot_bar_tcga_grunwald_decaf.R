@@ -30,7 +30,7 @@ subTME$subTME[which(subTME$predom.stroma.type.per.patient %in% c("deserted"))] <
 subTME$subTME[which(subTME$predom.stroma.type.per.patient %in% c("inter","reactive"))] <- "Reactive/intermediate"
 subTME$DeCAF <- dataSet$sampInfo$PurISS.final
 subTME$DeCAF <- gsub("iCAF","restCAF",subTME$DeCAF)
-subTME$DeCAF <- gsub("myCAF","permCAF",subTME$DeCAF)
+subTME$DeCAF <- gsub("myCAF","proCAF",subTME$DeCAF)
 
 
 datTmp <- as.data.frame(table(subTME[,c("DeCAF","subTME")]))
@@ -39,7 +39,7 @@ datTmp <- as.data.frame(table(subTME[,c("DeCAF","subTME")]))
 
 bar_plots <- ggplot(datTmp, aes(x=factor(datTmp$subTME, levels=c("Reactive/intermediate", "Deserted")), y=Freq, fill=DeCAF)) +
   geom_bar(position="fill", stat = "identity")+
-  scale_fill_manual(values = alpha(c("permCAF" = "#FE46A5", "restCAF" = "#008080"))) +
+  scale_fill_manual(values = alpha(c("proCAF" = "#FE46A5", "restCAF" = "#008080"))) +
   geom_text(aes(label = paste0(Freq)), position = position_fill(vjust = 0.5),
             col="white", size=6)+
   #geom_text(aes(x = 1.5, y = 1.05,

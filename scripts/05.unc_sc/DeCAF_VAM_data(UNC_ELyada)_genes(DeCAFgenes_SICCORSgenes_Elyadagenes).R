@@ -66,13 +66,13 @@ for (name in caf_name) {
 
 gene_sets <- CAF_markers
 gene_list_2 <- c(CAF_markers["SCISSORS-CAF-myCAF-top25"],CAF_markers["SCISSORS-CAF-iCAF-top25"])
-names(gene_list_2) <- c("SCISSORS-permCAF","SCISSORS-restCAF")
+names(gene_list_2) <- c("SCISSORS-proCAF","SCISSORS-restCAF")
 
 
 ## combine gene list
 
 gene_sets <- c(gene_list_1,gene_list_2)
-gene_sets <- gene_sets[c("DeCAF-permCAF","DeCAF-restCAF","SCISSORS-permCAF","SCISSORS-restCAF","Elyada-myCAF","Elyada-iCAF")]
+gene_sets <- gene_sets[c("DeCAF-proCAF","DeCAF-restCAF","SCISSORS-proCAF","SCISSORS-restCAF","Elyada-myCAF","Elyada-iCAF")]
 
 
 
@@ -82,9 +82,9 @@ gene_sets <- gene_sets[c("DeCAF-permCAF","DeCAF-restCAF","SCISSORS-permCAF","SCI
 VAM_plot <- list()
 source('/work/users/c/h/changfei/R_functions/VAM_Functions.R')
 color_mapping <- list(
-  "DeCAF-permCAF"    = "violetred1",
+  "DeCAF-proCAF"    = "violetred1",
   "DeCAF-restCAF"    = "turquoise4",
-  "SCISSORS-permCAF" = "violetred1",
+  "SCISSORS-proCAF" = "violetred1",
   "SCISSORS-restCAF" = "turquoise4",
   "Elyada-myCAF"     = "darkgreen",
   "Elyada-iCAF"      = "coral"

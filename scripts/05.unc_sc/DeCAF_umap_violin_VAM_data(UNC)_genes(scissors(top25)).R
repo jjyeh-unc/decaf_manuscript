@@ -75,8 +75,8 @@ sc <- readRDS("/work/users/c/h/changfei/01_CAPER_Paper/04_scRNA_process/data/UNC
 unique(sc@meta.data$label_seperate)
 ###define color
 color_mapping <- c(
-  "permCAF-1"                 = "palevioletred1",
-  "permCAF-2"                 = "violetred1",
+  "proCAF-1"                 = "palevioletred1",
+  "proCAF-2"                 = "violetred1",
   "restCAF-1"                 = "turquoise4",
   "restCAF-2"                 = "lightseagreen",
   "restCAF-3"                 = "steelblue1",
@@ -171,7 +171,7 @@ plots_VAM <- list()
 plots_violin <- list()
 ### SCISSORS
 # figure_title_SCISSORS <- c("SCISSORS-panCAF", "SCISSORS-myCAF-like", "SCISSORS-iCAF-like", "SCISSORS-apCAF-like","SCISSORS-PSC")
-figure_title_SCISSORS <- c("panCAF", "permCAF", "restCAF", "apCAF","Pericyte")
+figure_title_SCISSORS <- c("panCAF", "proCAF", "restCAF", "apCAF","Pericyte")
 
 figure_color_SCISSORS <- c("red","violetred1","turquoise4","#9683EC", "#E4D00A")
 
@@ -192,8 +192,8 @@ data_input <- data.frame(t(sc@assays$VAMcdf@data)) %>%
   bind_cols((sc@meta.data %>% dplyr::select(label_seperate)))
 
 color_mapping <- c(
-  "permCAF-1"                 = "palevioletred1",
-  "permCAF-2"                 = "violetred1",
+  "proCAF-1"                 = "palevioletred1",
+  "proCAF-2"                 = "violetred1",
   "restCAF-1"                 = "turquoise4",
   "restCAF-2"                 = "lightseagreen",
   "restCAF-3"                 = "steelblue1",

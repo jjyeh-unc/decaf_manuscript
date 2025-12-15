@@ -27,7 +27,7 @@ library(ggpattern)
 library(patchwork)
 
 ## Colors for DeCAF
-DeCAFList = c("permCAF","restCAF")
+DeCAFList = c("proCAF","restCAF")
 DeCAFCol = c("violetred1","turquoise4")
 
 
@@ -319,7 +319,7 @@ Plot_survival <- function(survDat, km, mainLabel, DeCAF_graph, individual, schem
                             legend.title="",break.time.by = 12,
                             palette = DeCAFCol,
                             xlab = "Time (months)", risk.table = T,
-                            title = paste(mainLabel," - SCISSORS CAF \n permCAF vs restCAF HR=",hr,
+                            title = paste(mainLabel," - SCISSORS CAF \n proCAF vs restCAF HR=",hr,
                                           " (BIC=",
                                           bic,")",sep=""))
   
@@ -400,7 +400,7 @@ Plot_survival <- function(survDat, km, mainLabel, DeCAF_graph, individual, schem
                                 pval.coord =c(pos,0.75),                          
                                 km_fit, conf.int = F, pval = T,
                                 legend.title="",break.time.by = 12,
-                                legend.labs="permCAF",
+                                legend.labs="proCAF",
                                 palette = "violetred1",
                                 xlab = "Time (months)", risk.table = T,
                                 title = paste(mainLabel," DeCAF",sep=""))
@@ -426,7 +426,7 @@ Plot_survival <- function(survDat, km, mainLabel, DeCAF_graph, individual, schem
                                 legend.labs=DeCAFList,
                                 palette = DeCAFCol,
                                 xlab = "Time (months)", risk.table = T,
-                                title = paste(mainLabel," - DeCAF \n permCAF vs restCAF HR=",hr,
+                                title = paste(mainLabel," - DeCAF \n proCAF vs restCAF HR=",hr,
                                               " (BIC=",
                                               bic,")",sep=""))
       
@@ -488,7 +488,7 @@ Plot_survival <- function(survDat, km, mainLabel, DeCAF_graph, individual, schem
   
   bic = round(BIC(p),3)
   hr <- round(1/summary(p)$coefficients[2],3)
-  survDat$SCISSORS_CAF_ALL = factor(survDat$SCISSORS_CAF_ALL, levels = c("Absent","restCAF", "Mixed.restCAF", "Mixed", "Mixed.permCAF", "permCAF"))
+  survDat$SCISSORS_CAF_ALL = factor(survDat$SCISSORS_CAF_ALL, levels = c("Absent","restCAF", "Mixed.restCAF", "Mixed", "Mixed.proCAF", "proCAF"))
   km_fit <- survfit(km ~ SCISSORS_CAF_ALL, data = survDat, type = "kaplan-meier")
   if(nrow(km_fit) !=  8){
     splots[[5]] <- ggsurvplot(font.legend = 16, 
@@ -541,14 +541,14 @@ Plot_survival <- function(survDat, km, mainLabel, DeCAF_graph, individual, schem
   index_subset = sample(index_list, floor(length(index_list)/2))
   
   survDat$SCISSORS_CAF_ALL = survDat$SCISSORS_CAF_ALL
-  survDat$SCISSORS_CAF_ALL[survDat$SCISSORS_CAF_ALL == "Mixed.permCAF"] = "permCAF"
+  survDat$SCISSORS_CAF_ALL[survDat$SCISSORS_CAF_ALL == "Mixed.proCAF"] = "proCAF"
   survDat$SCISSORS_CAF_ALL[survDat$SCISSORS_CAF_ALL == "Mixed.restCAF"] = "restCAF"
   
-  survDat$SCISSORS_CAF_ALL[index_subset] = "permCAF"
+  survDat$SCISSORS_CAF_ALL[index_subset] = "proCAF"
   survDat$SCISSORS_CAF_ALL[ survDat$SCISSORS_CAF_ALL %in% c("Mixed","Absent")] = "restCAF"
   
   survDat$SCISSORS_CAF_ALL = factor(
-    survDat$SCISSORS_CAF_ALL, levels = c("restCAF", "permCAF"))
+    survDat$SCISSORS_CAF_ALL, levels = c("restCAF", "proCAF"))
   
   
   if(individual == F){
@@ -585,7 +585,7 @@ Plot_survival <- function(survDat, km, mainLabel, DeCAF_graph, individual, schem
                             palette = DeCAFCol[2:1],
                             xlab = "Time (months)", risk.table = T,
                             
-                            title = paste(mainLabel," - SCISSORS CAF \n permCAF vs restCAF HR=",hr,
+                            title = paste(mainLabel," - SCISSORS CAF \n proCAF vs restCAF HR=",hr,
                                           " (BIC=",
                                           bic,")",sep=""))
   
@@ -1005,7 +1005,7 @@ Plot_survival_interaction <- function(survDat, km, mainLabel, DeCAF_graph,  indi
                             pval.coord =c(pos,0.75),            
                             km_fit, conf.int = F, pval = F,
                             legend.title="",break.time.by = 12,
-                            legend.labs = c("permCAF-Basal","permCAF-Classical","restCAF-Basal","restCAF-Classical"),
+                            legend.labs = c("proCAF-Basal","proCAF-Classical","restCAF-Basal","restCAF-Classical"),
                             xlab = "Time (months)", risk.table = T,
                             title = paste(mainLabel," - SCISSORS CAF PurIST Interaction",sep="")))
    if("try-error" %in% class(splots[[3]])){
@@ -1099,7 +1099,7 @@ Plot_survival_interaction <- function(survDat, km, mainLabel, DeCAF_graph,  indi
                                 censor.size = 3,
                                 pval.size = 8,
                                 pval.coord =c(pos,0.75),
-                                km_fit, legend.labs = c("permCAF-Basal","permCAF-Classical","restCAF-Basal","restCAF-Classical"),
+                                km_fit, legend.labs = c("proCAF-Basal","proCAF-Classical","restCAF-Basal","restCAF-Classical"),
                                 conf.int = F, pval = F  ,
                                 legend.title="",break.time.by = 12,
                                  xlab = "Time (months)", risk.table = T,
@@ -1134,7 +1134,7 @@ Plot_survival_interaction <- function(survDat, km, mainLabel, DeCAF_graph,  indi
                                 censor.size = 3,
                                 pval.size = 8,
                                 pval.coord =c(pos,0.75), 
-                                km_fit, legend.labs = c( "permCAF-Basal","permCAF-Classical","restCAF-Basal","restCAF-Classical"),
+                                km_fit, legend.labs = c( "proCAF-Basal","proCAF-Classical","restCAF-Basal","restCAF-Classical"),
                                 conf.int = F, pval = F  ,
                                 legend.title="DeCAF",break.time.by = 12,
                                 xlab = "Time (months)", risk.table = T,
@@ -1359,6 +1359,7 @@ survival_figures <- Plot_survival(survDat, km, mainLabel = "Full Pooled Survival
                                   individual = FALSE, schemaList = schemaList)
 
 
+
 ## Save Plots
 pdf("../../results/figures/MoffitStroma_PublicPDAC_Survival.pdf", onefile = F)
 survival_figures[[1]][2]
@@ -1397,7 +1398,7 @@ survival_interaction_all = Plot_survival_interaction(survDat, km, mainLabel = "F
 
 pdf("../../results/figures/DeCAF_PurIST_PublicPDAC_Survival.pdf", onefile = F, width = 8, height = 8)
 (survival_interaction_all[[1]][[5]]$plot +
-    scale_color_manual(values = c("violetred1", "violetred1","turquoise4", "turquoise4"), labels = c("permCAF", NA, "restCAF", NA)) +
+    scale_color_manual(values = c("violetred1", "violetred1","turquoise4", "turquoise4"), labels = c("proCAF", NA, "restCAF", NA)) +
     guides(colour = guide_legend(ncol = 2))  )/ (survival_interaction_all[[1]][[4]]$table +  scale_color_manual(values = c("turquoise4", "turquoise4", "violetred1", "violetred1")) ) + plot_layout(ncol = 1, heights = c(3, 1)) +
   theme(axis.text.y = ggtext::element_markdown(color = c("turquoise4", "turquoise4","violetred1", "violetred1")))
 dev.off()
@@ -1410,7 +1411,7 @@ dev.off()
 
 SurvDatCmb = SurvDatCmb %>% mutate(`strata(dataSet)` = dataSet)
 SurvDatCmb$PurIST <- factor(SurvDatCmb$PurIST, levels = c("Classical","Basal-like"))
-SurvDatCmb$DeCAF <- factor(SurvDatCmb$DeCAF, levels = c("restCAF","permCAF"))
+SurvDatCmb$DeCAF <- factor(SurvDatCmb$DeCAF, levels = c("restCAF","proCAF"))
 fit <- coxph(formula = Surv(SurvDatCmb$time, SurvDatCmb$status) ~ DeCAF+PurIST  + strata(dataSet), data = SurvDatCmb)
 
 pdf("../../results/figures/DeCAF_PurIST_PublicData_Forrest_Plot.pdf", onefile = F, width = 8, height = 8)

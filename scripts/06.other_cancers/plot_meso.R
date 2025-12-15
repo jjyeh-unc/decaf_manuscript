@@ -9,9 +9,9 @@ library(ggpubr)
 pathCall <- read.xlsx("../data/TCGA_pancan_clinical_caf11523_AI_231114.xlsx")
 #clinicalDat <- read.xlsx("../data/TCGA_RNAseq/TCGA-CDR-SupplementalTableS1.xlsx")
 names(pathCall)[which(names(pathCall) %in% c("CAPER.score","CAPER","CAPER_graded"))] <- c("DeCAF_prob","DeCAF","DeCAF_graded")
-pathCall$DeCAF <- gsub("myCAF","permCAF",pathCall$DeCAF)
+pathCall$DeCAF <- gsub("myCAF","proCAF",pathCall$DeCAF)
 pathCall$DeCAF <- gsub("iCAF","restCAF",pathCall$DeCAF)
-pathCall$DeCAF_graded <- gsub("myCAF","permCAF",pathCall$DeCAF_graded)
+pathCall$DeCAF_graded <- gsub("myCAF","proCAF",pathCall$DeCAF_graded)
 pathCall$DeCAF_graded <- gsub("iCAF","restCAF",pathCall$DeCAF_graded)
 
 pathCall.meso <- pathCall[which(pathCall$type %in% "MESO"),]
@@ -25,7 +25,7 @@ datStat <- fisher.test(table(pathCall.meso[,c("DeCAF","histological_type")]))
 
 bar_plots <- ggplot(datTmp, aes(x=factor(datTmp$histological_type, levels=c("Epithelioid", "Biphasic", "Diffuse malignant", "Sarcomatoid")), y=Freq, fill=DeCAF)) +
   geom_bar(position="fill", stat = "identity")+
-  scale_fill_manual(values = alpha(c("permCAF" = "#FE46A5", "restCAF" = "#008080"))) +
+  scale_fill_manual(values = alpha(c("proCAF" = "#FE46A5", "restCAF" = "#008080"))) +
   geom_text(aes(label = paste0(Freq)), position = position_fill(vjust = 0.5),
             col="white", size=6)+
   #geom_text(aes(x = 1.5, y = 1.05,
@@ -59,7 +59,7 @@ datTmp$pathCall <- factor(datTmp$pathCall, levels = c("Myxoid","Mixed","Fibrous"
 
 point_size <- 3
 boxplot_lwd <- 0.5
-color_mapping_boxplot <- c("CR/PR" = "darkgreen", "SD/PD" = "darkred", "permCAF" = "#FE46A5", "restCAF" = "#008080","Basal-like" = "orange", "Classical" = "blue")
+color_mapping_boxplot <- c("CR/PR" = "darkgreen", "SD/PD" = "darkred", "proCAF" = "#FE46A5", "restCAF" = "#008080","Basal-like" = "orange", "Classical" = "blue")
 
 
 crop2<-ggplot(datTmp, aes(x=pathCall.di, y=DeCAF_prob)) +

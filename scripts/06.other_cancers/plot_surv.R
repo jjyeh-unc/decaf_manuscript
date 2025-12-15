@@ -20,18 +20,18 @@ TCGA<-tcga %>%
 
 
 TCGA <- within(TCGA, {
-  DeCAF.UNC <- factor(DeCAF.UNC, levels=c("restCAF_Luminal", "permCAF_Luminal", "restCAF_Basal", "permCAF_Basal"))
-  DeCAF.UNC.rev <- factor(DeCAF.UNC, levels=c("restCAF_Basal","restCAF_Luminal", "permCAF_Basal", "permCAF_Luminal" ))
-  DeCAF <- factor(DeCAF, levels=c("restCAF", "permCAF"))
+  DeCAF.UNC <- factor(DeCAF.UNC, levels=c("restCAF_Luminal", "proCAF_Luminal", "restCAF_Basal", "proCAF_Basal"))
+  DeCAF.UNC.rev <- factor(DeCAF.UNC, levels=c("restCAF_Basal","restCAF_Luminal", "proCAF_Basal", "proCAF_Luminal" ))
+  DeCAF <- factor(DeCAF, levels=c("restCAF", "proCAF"))
   UNC <- factor(UNC, levels=c("Luminal", "Basal"))
   
 })
 
-TCGA.C<-subset(TCGA, DeCAF.C %in% c("restCAF_LumP", "permCAF_LumP", "restCAF_Ba/Sq", "permCAF_Ba/Sq"))
+TCGA.C<-subset(TCGA, DeCAF.C %in% c("restCAF_LumP", "proCAF_LumP", "restCAF_Ba/Sq", "proCAF_Ba/Sq"))
 
 TCGA.C <- within(TCGA.C, {
-  DeCAF.C <- factor(DeCAF.C, levels=c("restCAF_LumP", "permCAF_LumP", "restCAF_Ba/Sq", "permCAF_Ba/Sq"))
-  DeCAF.C.rev <- factor(DeCAF.C, levels=c("restCAF_Ba/Sq","restCAF_LumP", "permCAF_Ba/Sq", "permCAF_LumP"))
+  DeCAF.C <- factor(DeCAF.C, levels=c("restCAF_LumP", "proCAF_LumP", "restCAF_Ba/Sq", "proCAF_Ba/Sq"))
+  DeCAF.C.rev <- factor(DeCAF.C, levels=c("restCAF_Ba/Sq","restCAF_LumP", "proCAF_Ba/Sq", "proCAF_LumP"))
   
 })
 
@@ -54,7 +54,7 @@ ggsurvplot(font.legend = 10,  legend = "right",
            fit, 
            conf.int = F, pval = T,
            legend.title="",break.time.by = 12,
-           legend.labs=c("restCAF","permCAF"),
+           legend.labs=c("restCAF","proCAF"),
            palette = c("turquoise4", "violetred1"),
            xlab = "Time (months)", risk.table = T,
            title = "TCGA: Overall Survival")
@@ -78,7 +78,7 @@ ggsurvplot(font.legend = 10,  legend = "right",
            pval.size = 8,
            fit, 
            conf.int = F, pval = T,
-           legend.labs=c("restCAF_Luminal", "permCAF_Luminal", "restCAF_Basal", "permCAF_Basal"),
+           legend.labs=c("restCAF_Luminal", "proCAF_Luminal", "restCAF_Basal", "proCAF_Basal"),
            palette = c("turquoise3", "forestgreen", "violetred1","violetred4"),
            legend.title="",break.time.by = 12,
            linetype = c(2,1,2,1),
@@ -104,7 +104,7 @@ ggsurvplot(font.legend = 10,  legend = "right",
            pval.size = 8,
            fit, 
            conf.int = F, pval = T,
-           legend.labs=c("restCAF_LumP", "permCAF_LumP", "restCAF_Ba/Sq", "permCAF_Ba/Sq"),
+           legend.labs=c("restCAF_LumP", "proCAF_LumP", "restCAF_Ba/Sq", "proCAF_Ba/Sq"),
            palette = c("turquoise3", "forestgreen", "violetred1","violetred4"),
            legend.title="",break.time.by = 12,
            linetype = c(2,1,2,1),
@@ -163,7 +163,7 @@ ggsurvplot_facet(font.legend = 16, data=TCGA, facet.by = "DeCAF",
                  fit, 
                  conf.int = F, pval = T,
                  legend.title="",break.time.by = 12,
-                 legend.labs=c("permCAF","restCAF"),
+                 legend.labs=c("proCAF","restCAF"),
                  palette = c("orange","blue"),
                  linetype = c("strata"),
                  xlab = "Time (months)", risk.table = T,
@@ -189,7 +189,7 @@ ggsurvplot(font.legend = 16,
            fit, 
            conf.int = F, pval = T,
            legend.title="",break.time.by = 12,
-           legend.labs=c("permCAF:Basal","permCAF:Luminal","restCAF:Basal","restCAF:Luminal"),
+           legend.labs=c("proCAF:Basal","proCAF:Luminal","restCAF:Basal","restCAF:Luminal"),
            palette = c("violetred1", "pink3", "turquoise4", "forestgreen"),
            xlab = "Time (months)", risk.table = T,
            title = "TCGA: Overall Survival")
@@ -211,7 +211,7 @@ ggsurvplot(font.legend = 16,
            fit, 
            conf.int = F, pval = T,
            legend.title="",break.time.by = 12,
-           legend.labs=c("Basal:permCAF", "Basal:restCAF", "Luminal:permCAF","Luminal:restCAF"),
+           legend.labs=c("Basal:proCAF", "Basal:restCAF", "Luminal:proCAF","Luminal:restCAF"),
            palette = c("violetred1", "pink3", "turquoise4", "forestgreen"),
            xlab = "Time (months)", risk.table = T,
            title = "TCGA: Overall Survival")
@@ -234,7 +234,7 @@ ggsurvplot_facet(font.legend = 16, facet.by="DeCAF",
            fit, 
            conf.int = F, pval = T,
            legend.title="",break.time.by = 12,
-           legend.labs=c("Basal:permCAF", "Basal:restCAF", "Luminal:permCAF","Luminal:restCAF"),
+           legend.labs=c("Basal:proCAF", "Basal:restCAF", "Luminal:proCAF","Luminal:restCAF"),
            palette = c("violetred1", "pink3", "turquoise4", "forestgreen"),
            xlab = "Time (months)", risk.table = T,
            title = "TCGA: Overall Survival")
@@ -268,7 +268,7 @@ ggsurvplot_facet(font.legend = 16, facet.by = "DeCAF", data=TCGA,
 imvig<-read.table("IMvigor.CAF.20231209.txt", sep="\t", header=T, row.names=1)
 
 imvigor <- within(imvig, {
-  DeCAF <- factor(DeCAF, levels=c("restCAF", "permCAF"))
+  DeCAF <- factor(DeCAF, levels=c("restCAF", "proCAF"))
 })
 
 fit<- survfit(Surv(os, censOS) ~DeCAF , data=imvig)
@@ -289,7 +289,7 @@ ggsurvplot(font.legend = 16,
            fit, 
            conf.int = F, pval = T,
            legend.title="",break.time.by = 12,
-           legend.labs=c("permCAF","restCAF"),
+           legend.labs=c("proCAF","restCAF"),
            palette = c("violetred1","turquoise4"),
            xlab = "Time (months)", risk.table = T,
            title="IMvigor210")
@@ -331,13 +331,13 @@ uromol.pfs<-ggsurvplot(font.legend = 10,
            fit, 
            conf.int = F, pval = T,
            legend.title="",break.time.by = 12,
-           legend.labs=c("permCAF","restCAF"),
+           legend.labs=c("proCAF","restCAF"),
            palette = c("violetred1","turquoise4"),
            xlab = "Time (months)", risk.table = T,
            title = "UROMOL: Progression Free Survival")
            
 uromol.1 <- within(UROMOL, {
-  DeCAF <- factor(DeCAF, levels=c("restCAF", "permCAF"))
+  DeCAF <- factor(DeCAF, levels=c("restCAF", "proCAF"))
 })
 
 
@@ -365,7 +365,7 @@ ggsurvplot(font.legend = 10,
            fit, 
            conf.int = F, pval = T,
            legend.title="",break.time.by = 12,
-           legend.labs=c("permCAF","restCAF"),
+           legend.labs=c("proCAF","restCAF"),
            palette = c("violetred1","turquoise4"),
            xlab = "Time (months)", risk.table = T,
            title = "UROMOL: Recurrence Free Survival")
@@ -373,7 +373,7 @@ dev.off()
 
 
 UROMOL <- within(UROMOL, {
-  DeCAF <- factor(DeCAF, levels=c("restCAF", "permCAF"))
+  DeCAF <- factor(DeCAF, levels=c("restCAF", "proCAF"))
 })
 
 summary(coxph(Surv(Prog.Time, Progression) ~DeCAF, data=UROMOL))
@@ -399,7 +399,7 @@ uro.1<-ggsurvplot_facet(font.legend = 10, facet.by = c("Staging"), data=URO.Surv
            fit, 
            conf.int = F, pval = T,
            legend.title="",break.time.by = 12,
-          legend.labs=c("permCAF","restCAF"),
+          legend.labs=c("proCAF","restCAF"),
           palette = c("violetred1","turquoise4"),
            xlab = "Time (months)", risk.table = T,
           ncol=5,
@@ -422,7 +422,7 @@ uro.3<-ggsurvplot_facet(font.legend = 10, facet.by = c("Staging"), data=URO.Surv
                  fit, 
                  conf.int = F, pval = T,
                  legend.title="",break.time.by = 12,
-                 legend.labs=c("permCAF","restCAF"),
+                 legend.labs=c("proCAF","restCAF"),
                  palette = c("violetred1","turquoise4"),
                  xlab = "Time (months)", risk.table = T,
                  ncol=5,
@@ -430,7 +430,7 @@ uro.3<-ggsurvplot_facet(font.legend = 10, facet.by = c("Staging"), data=URO.Surv
 
 
 URO.Surv <- within(URO.Surv, {
-  DeCAF <- factor(DeCAF, levels=c("restCAF", "permCAF"))
+  DeCAF <- factor(DeCAF, levels=c("restCAF", "proCAF"))
   
 })
 

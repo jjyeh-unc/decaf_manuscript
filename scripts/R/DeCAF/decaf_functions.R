@@ -28,21 +28,21 @@ apply_decaf = function(data, classifier){
     indmat[,i] = (data1[p1,] > data1[p2,])^2
   }
   
-  ## Calculate probability of permCAF
+  ## Calculate probability of proCAF
   X=cbind(rep(1, nrow(indmat)), indmat)
   trainingPrediction = exp(X%*%c(fit$beta))/(1+exp(X%*%c(fit$beta)))
   
   ## Obtain DeCAF subtype
-  classification = c("restCAF","permCAF")[(trainingPrediction >= 0.5)^2 + 1]
+  classification = c("restCAF","proCAF")[(trainingPrediction >= 0.5)^2 + 1]
   
   ## Obtain Grade of DeCAF Subtype
   guess = rep(1, length(trainingPrediction))
   guess[trainingPrediction < .1] = "Strong restCAF"
   guess[trainingPrediction >= .1 & trainingPrediction < .4] = "Likely restCAF"
   guess[trainingPrediction >= .4 & trainingPrediction < .5] = "Lean restCAF"
-  guess[trainingPrediction >= .5 & trainingPrediction < .6] = "Lean permCAF"
-  guess[trainingPrediction >= .6 & trainingPrediction < .9] = "Likely permCAF"
-  guess[trainingPrediction >= .9 ] = "Strong permCAF"
+  guess[trainingPrediction >= .5 & trainingPrediction < .6] = "Lean proCAF"
+  guess[trainingPrediction >= .6 & trainingPrediction < .9] = "Likely proCAF"
+  guess[trainingPrediction >= .9 ] = "Strong proCAF"
   
   ## Put results together into dataframe
   final = data.frame(DeCAF_prob = trainingPrediction, DeCAF = classification, 

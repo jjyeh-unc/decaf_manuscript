@@ -31,9 +31,9 @@ box_plots <- list()
 bar_plots <- list()
 point_size <- 3
 boxplot_lwd <- 0.5
-color_mapping_boxplot <- c("CR/PR" = "darkgreen", "SD/PD" = "darkred", "permCAF" = "#FE46A5", "restCAF" = "#008080","Basal-like" = "orange", "Classical" = "blue")
+color_mapping_boxplot <- c("CR/PR" = "darkgreen", "SD/PD" = "darkred", "proCAF" = "#FE46A5", "restCAF" = "#008080","Basal-like" = "orange", "Classical" = "blue")
 # color_mapping_boxplot2 <- c("CR/PR" = "darkgreen", "SD/PD" = "darkred")
-# color_mapping_boxplot <- c("CR/PR" = "green", "SD/PD" = "red", "permCAF" = "#FE46A5", "restCAF" = "#008080")
+# color_mapping_boxplot <- c("CR/PR" = "green", "SD/PD" = "red", "proCAF" = "#FE46A5", "restCAF" = "#008080")
 
 
 
