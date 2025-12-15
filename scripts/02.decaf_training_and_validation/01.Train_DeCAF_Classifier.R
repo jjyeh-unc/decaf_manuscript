@@ -177,10 +177,10 @@ genes0 = genes0[!grepl("orf", genes0)]
 # Create classifier
 fitted_alpha25_cut05_K2 = create.classifier(datf = datf2, anno = anno2, genes0 = genes0, keep = training0, training0 = training0, cut = 0.25, alpha = 0.05)
 
-## Rename as final DeCAF classifer and change labels to be proCAF and restCAF
+## Rename as final DeCAF classifer and change labels to be permCAF and restCAF
 decaf_classifier = fitted_alpha25_cut05_K2
 decaf_classifier$anno$subtype[decaf_classifier$anno$subtype == "iCAF"] = "restCAF"
-decaf_classifier$anno$subtype[decaf_classifier$anno$subtype == "myCAF"] = "proCAF"
+decaf_classifier$anno$subtype[decaf_classifier$anno$subtype == "myCAF"] = "permCAF"
 
 ## Save
 save(decaf_classifier, file = "../R/DeCAF/decaf_classifier.Rdata")
