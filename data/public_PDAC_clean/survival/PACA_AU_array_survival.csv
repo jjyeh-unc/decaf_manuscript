@@ -1,83 +1,83 @@
 "ID","time","status","surv_whitelist","SCISSORS_CAF","SCISSORS_CAF_K4","SCISSORS_CAF_ALL","SCISSORS_CAF_K2","MS_K2","Elyada_CAF","PurIST","Maurer","Puleo","DeCAF","DeCAF_prob"
-"SA407918",1.9,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","restCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","permCAF",0.767884290338677
-"SA408414",23.8,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.877164360321083
-"SA408530",11.6,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","iCAF","Classical","Immune-rich","Pure Basal-like","permCAF",0.767884290338677
-"SA408570",8.7,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.767884290338677
+"SA407918",1.9,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","restCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","proCAF",0.767884290338677
+"SA408414",23.8,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.877164360321083
+"SA408530",11.6,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","iCAF","Classical","Immune-rich","Pure Basal-like","proCAF",0.767884290338677
+"SA408570",8.7,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","proCAF",0.767884290338677
 "SA408706",35.9,1,TRUE,NA,"Mixed","Mixed","restCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0931098082098721
 "SA408758",25.6,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.494161377542963
-"SA408867",7.8,1,TRUE,"permCAF","permCAF","permCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Basal-like","permCAF",0.822440488509994
+"SA408867",7.8,1,TRUE,"proCAF","proCAF","proCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Basal-like","proCAF",0.822440488509994
 "SA408891",5.1,1,TRUE,NA,NA,NA,NA,NA,NA,"Basal-like",NA,NA,"restCAF",0.433004926696095
-"SA409186",42,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0428061809611288
-"SA409258",20.2,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"permCAF",0.822440488509994
+"SA409186",42,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0428061809611288
+"SA409258",20.2,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"proCAF",0.822440488509994
 "SA409310",2.9,1,TRUE,NA,NA,NA,NA,NA,NA,"Basal-like",NA,NA,"restCAF",0.131349883588498
 "SA409446",42,0,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.189049382775223
 "SA409543",42,0,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"restCAF",0.494161377542963
-"SA409622",10.4,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.494161377542963
-"SA409662",16.5,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Stroma Activated","permCAF",0.783592233647565
-"SA409711",47,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Stroma Activated","restCAF",0.494161377542963
-"SA409775",7.3,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.940067283560663
+"SA409622",10.4,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.494161377542963
+"SA409662",16.5,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Stroma Activated","proCAF",0.783592233647565
+"SA409711",47,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Stroma Activated","restCAF",0.494161377542963
+"SA409775",7.3,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","proCAF",0.940067283560663
 "SA409891",15.9,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.338649754098686
 "SA409923",17.6,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"restCAF",0.257982087119426
 "SA410103",14.1,1,TRUE,NA,"Mixed","Mixed","restCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.307839936292444
-"SA410118",13.2,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Stroma Activated","permCAF",0.940067283560663
+"SA410118",13.2,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Stroma Activated","proCAF",0.940067283560663
 "SA410207",35.8,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Classical","restCAF",0.494161377542963
 "SA410234",14.3,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"restCAF",0.0894440816165043
-"SA410263",0.3,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Basal-like","Immune-rich","Desmoplastic","restCAF",0.0337291947109967
-"SA410310",30,1,TRUE,NA,"Mixed","Mixed","restCAF","Normal","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.767884290338677
-"SA410383",3.6,1,TRUE,"permCAF","permCAF","permCAF","restCAF","Activated","iCAF","Basal-like","ECM-rich","Pure Basal-like","permCAF",0.822440488509994
-"SA410410",9.4,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.767884290338677
-"SA410503",8.4,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.00687446245386566
-"SA410535",26.5,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.767884290338677
-"SA410582",6.8,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.940067283560663
+"SA410263",0.3,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Basal-like","Immune-rich","Desmoplastic","restCAF",0.0337291947109967
+"SA410310",30,1,TRUE,NA,"Mixed","Mixed","restCAF","Normal","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.767884290338677
+"SA410383",3.6,1,TRUE,"proCAF","proCAF","proCAF","restCAF","Activated","iCAF","Basal-like","ECM-rich","Pure Basal-like","proCAF",0.822440488509994
+"SA410410",9.4,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.767884290338677
+"SA410503",8.4,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.00687446245386566
+"SA410535",26.5,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.767884290338677
+"SA410582",6.8,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","proCAF",0.940067283560663
 "SA410742",12,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Classical","restCAF",0.257982087119426
-"SA410750",30,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.433004926696095
+"SA410750",30,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.433004926696095
 "SA410758",34,0,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Classical","restCAF",0.433004926696095
 "SA410763",28,0,TRUE,NA,"Mixed","Mixed","restCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0156430465533532
-"SA410859",17.7,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Normal","myCAF","Basal-like","ECM-rich","Stroma Activated","permCAF",0.783592233647565
-"SA410883",23.3,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.767884290338677
-"SA410899",7.3,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.783592233647565
+"SA410859",17.7,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Normal","myCAF","Basal-like","ECM-rich","Stroma Activated","proCAF",0.783592233647565
+"SA410883",23.3,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.767884290338677
+"SA410899",7.3,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.783592233647565
 "SA410911",3.3,1,TRUE,NA,NA,NA,NA,NA,NA,"Basal-like",NA,NA,"restCAF",0.494161377542963
-"SA410933",22,0,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"permCAF",0.506466203436709
+"SA410933",22,0,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"proCAF",0.506466203436709
 "SA411001",35,0,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"restCAF",0.338649754098686
-"SA411189",12.9,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.940067283560663
-"SA411209",35,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Normal","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0156430465533532
-"SA411241",33,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Normal","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0931098082098721
-"SA411305",16.6,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","permCAF",0.940067283560663
-"SA411397",24,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.767884290338677
-"SA411406",13.7,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.433004926696095
-"SA411430",33.3,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"permCAF",0.940067283560663
-"SA411557",6.7,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"permCAF",0.940067283560663
+"SA411189",12.9,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","proCAF",0.940067283560663
+"SA411209",35,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Normal","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0156430465533532
+"SA411241",33,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Normal","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0931098082098721
+"SA411305",16.6,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","ECM-rich","Pure Classical","proCAF",0.940067283560663
+"SA411397",24,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.767884290338677
+"SA411406",13.7,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.433004926696095
+"SA411430",33.3,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"proCAF",0.940067283560663
+"SA411557",6.7,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"proCAF",0.940067283560663
 "SA411578",28,0,TRUE,NA,"Mixed","Mixed","restCAF","Normal","iCAF","Classical","Immune-rich","Stroma Activated","restCAF",0.433004926696095
-"SA411721",24,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.600973099479165
-"SA411745",14.1,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.940067283560663
-"SA411769",21,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.940067283560663
-"SA411797",9.8,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"permCAF",0.940067283560663
-"SA411833",22,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.257982087119426
-"SA411923",9,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.767884290338677
-"SA412076",38,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","iCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.940067283560663
-"SA412212",20.3,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.940067283560663
-"SA518603",11,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.783592233647565
+"SA411721",24,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.600973099479165
+"SA411745",14.1,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.940067283560663
+"SA411769",21,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.940067283560663
+"SA411797",9.8,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"proCAF",0.940067283560663
+"SA411833",22,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.257982087119426
+"SA411923",9,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Stroma Activated","proCAF",0.767884290338677
+"SA412076",38,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","iCAF","Classical","ECM-rich","Stroma Activated","proCAF",0.940067283560663
+"SA412212",20.3,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","proCAF",0.940067283560663
+"SA518603",11,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.783592233647565
 "SA518614",8.6,1,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"restCAF",0.0931098082098721
-"SA518615",13,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.00687446245386566
-"SA518633",10.9,1,TRUE,"permCAF","permCAF","permCAF","restCAF","Activated","iCAF","Basal-like","ECM-rich","Pure Basal-like","permCAF",0.600973099479165
+"SA518615",13,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.00687446245386566
+"SA518633",10.9,1,TRUE,"proCAF","proCAF","proCAF","restCAF","Activated","iCAF","Basal-like","ECM-rich","Pure Basal-like","proCAF",0.600973099479165
 "SA518637",2.8,0,TRUE,NA,NA,NA,NA,NA,NA,"Basal-like",NA,NA,"restCAF",0.184017788971947
-"SA518665",14,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.494161377542963
+"SA518665",14,0,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","iCAF","Classical","Immune-rich","Pure Classical","restCAF",0.494161377542963
 "SA518689",10.3,0,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0156430465533532
 "SA518695",15,0,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.338649754098686
 "SA518701",12,0,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"restCAF",0.0149768140640215
-"SA518704",6.5,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.767884290338677
-"SA518716",5.2,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0510668174506218
-"SA518724",5,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Classical","permCAF",0.877164360321083
+"SA518704",6.5,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.767884290338677
+"SA518716",5.2,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0510668174506218
+"SA518724",5,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Classical","proCAF",0.877164360321083
 "SA518765",0.9,0,TRUE,NA,"Mixed","Mixed","restCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.0156430465533532
-"SA518806",14.1,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","permCAF",0.940067283560663
-"SA518817",0,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Classical","permCAF",0.940067283560663
-"SA518851",5.2,1,TRUE,NA,NA,NA,NA,NA,NA,"Basal-like",NA,NA,"permCAF",0.822440488509994
-"SA518868",5.7,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Desmoplastic","permCAF",0.940067283560663
-"SA518878",9.4,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Stroma Activated","permCAF",0.940067283560663
+"SA518806",14.1,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","ECM-rich","Stroma Activated","proCAF",0.940067283560663
+"SA518817",0,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Classical","proCAF",0.940067283560663
+"SA518851",5.2,1,TRUE,NA,NA,NA,NA,NA,NA,"Basal-like",NA,NA,"proCAF",0.822440488509994
+"SA518868",5.7,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Desmoplastic","proCAF",0.940067283560663
+"SA518878",9.4,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Stroma Activated","proCAF",0.940067283560663
 "SA528675",28,0,TRUE,NA,NA,NA,NA,NA,NA,"Classical",NA,NA,"restCAF",0.307839936292444
-"SA528687",42,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.257982087119426
-"SA528693",43,0,TRUE,"permCAF","permCAF","permCAF","restCAF","Activated","iCAF","Basal-like","ECM-rich","Pure Basal-like","permCAF",0.822440488509994
+"SA528687",42,1,TRUE,"restCAF","Mixed.restCAF","Mixed.restCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","restCAF",0.257982087119426
+"SA528693",43,0,TRUE,"proCAF","proCAF","proCAF","restCAF","Activated","iCAF","Basal-like","ECM-rich","Pure Basal-like","proCAF",0.822440488509994
 "SA528695",3.3,1,TRUE,"restCAF","restCAF","restCAF","restCAF","Activated","iCAF","Classical","ECM-rich","Pure Classical","restCAF",0.433004926696095
-"SA528709",17,0,TRUE,NA,NA,NA,NA,NA,NA,"Basal-like",NA,NA,"permCAF",0.940067283560663
-"SA528755",18,0,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","permCAF",0.767884290338678
-"SA528761",9.5,1,TRUE,"permCAF","Mixed.permCAF","Mixed.permCAF","permCAF","Activated","myCAF","Classical","Immune-rich","Pure Basal-like","permCAF",0.767884290338678
+"SA528709",17,0,TRUE,NA,NA,NA,NA,NA,NA,"Basal-like",NA,NA,"proCAF",0.940067283560663
+"SA528755",18,0,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Classical","proCAF",0.767884290338678
+"SA528761",9.5,1,TRUE,"proCAF","Mixed.proCAF","Mixed.proCAF","proCAF","Activated","myCAF","Classical","Immune-rich","Pure Basal-like","proCAF",0.767884290338678
