@@ -1,4 +1,4 @@
-"","N","permCAF","Accuracy","Sensitivity","Specificity","AUC"
+"","N","proCAF","Accuracy","Sensitivity","Specificity","AUC"
 "Grunwald",15,13,0.933,0.923,1,1
 "Hayashi",90,47,0.822,0.66,1,0.995
 "Linehan",47,37,0.915,0.892,1,0.988
